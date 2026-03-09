@@ -92,23 +92,23 @@ export default function Header() {
     <header
       className={cn(
         "fixed top-0 left-0 right-0 z-50",
-        showBackground ? "bg-white shadow-md" : "bg-transparent"
+        showBackground ? "bg-white shadow-md" : "bg-transparent",
       )}
     >
       <div
         className={cn(
           "container flex items-center justify-between px-6 border-b border-gray-200 transition-all duration-300 ",
-          showBackground ? "py-2" : "py-3"
+          showBackground ? "py-2" : "py-3",
         )}
       >
         {/* Logo */}
         <Link href="/" className="flex items-center gap-4">
           <Image
             src="/logo.png"
-            alt="BMW Logo"
+            alt="BYD Logo"
             width={50}
             height={50}
-            className="w-10 h-10 md:w-[50px] md:h-[50px]"
+            className="w-auto h-full"
           />
           {/* <p className="text-2xl font-serif flex justify-center gap-2.5">
             BMW
@@ -117,7 +117,7 @@ export default function Header() {
         </Link>
 
         {/* Desktop Nav */}
-        <nav className="hidden md:flex items-center gap-12">
+        <nav className="hidden md:flex items-center">
           {navLinks.map((link) => {
             const isActive = isLinkActive(link);
 
@@ -127,28 +127,30 @@ export default function Header() {
                 key={link.name}
                 href={link.href}
                 className={cn(
-                  "relative flex items-center gap-1 font-normal transition-colors group",
+                  "relative flex items-center gap-1 font-normal transition-colors group px-6",
                   showBackground
                     ? isActive
                       ? "text-blue-600"
                       : "text-gray-800 hover:text-blue-600"
                     : isActive
-                    ? "text-blue-400"
-                    : "text-white hover:text-blue-400"
+                      ? "text-blue-400"
+                      : "text-white hover:text-blue-400",
                 )}
               >
                 {link.name}
+
                 {link.hasDropdown && (
                   <FaChevronDown className="text-xs opacity-70" />
                 )}
-                {/* Underline effect */}
+
+                {/* Underline */}
                 <span
                   className={cn(
-                    "absolute -bottom-1 left-0 h-0.5 transition-all duration-300",
-                    isActive ? "w-full" : "w-0 group-hover:w-full",
-                    showBackground ? "bg-blue-600" : "bg-blue-400"
+                    "absolute -bottom-1 left-1/2 -translate-x-1/2 h-0.5 transition-all duration-300",
+                    isActive ? "w-[70%]" : "w-0 group-hover:w-[70%]",
+                    showBackground ? "bg-blue-600" : "bg-blue-400",
                   )}
-                ></span>
+                />
               </Link>
             );
           })}
@@ -168,7 +170,7 @@ export default function Header() {
             "md:hidden text-xl transition-colors",
             showBackground
               ? "text-gray-800 hover:text-gray-600"
-              : "text-white hover:text-gray-300"
+              : "text-white hover:text-gray-300",
           )}
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
         >
@@ -191,7 +193,7 @@ export default function Header() {
                   "py-2 block text-center font-medium transition-colors",
                   isActive
                     ? "text-blue-400 font-bold"
-                    : "text-white hover:text-gray-300"
+                    : "text-white hover:text-gray-300",
                 )}
                 onClick={() => setMobileMenuOpen(false)}
               >

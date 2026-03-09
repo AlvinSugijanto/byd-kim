@@ -1,12 +1,12 @@
 "use client";
 
 import { useState } from "react";
-import { motion } from "framer-motion";
 import Image from "next/image";
-import { carListNew } from "@/lib/carListNew";
 import Link from "next/link";
+import { motion } from "framer-motion";
+import { carListNew } from "@/lib/carList";
 
-export default function ModelPage() {
+const ModelView = () => {
   const [hoveredCard, setHoveredCard] = useState<number | null>(null);
 
   // Filter states
@@ -18,20 +18,10 @@ export default function ModelPage() {
   const filteredCarList = carListNew.filter((car) => {
     const seriesMatch =
       selectedSeries === "all" ||
-      (selectedSeries === "ix" && car.series.startsWith("ix")) ||
-      (selectedSeries === "i" &&
-        car.series.startsWith("i") &&
-        !car.series.startsWith("ix")) ||
-      (selectedSeries === "m" && car.series.startsWith("m")) ||
-      (selectedSeries === "x" &&
-        car.series.startsWith("x") &&
-        !car.series.startsWith("xm")) ||
-      (selectedSeries === "xm" && car.series.startsWith("xm")) ||
-      (selectedSeries === "sedan" && car.series.includes("sedan")) ||
-      (selectedSeries === "coupe" && car.series.includes("coupe")) ||
-      (selectedSeries === "convertible" &&
-        car.series.includes("convertible")) ||
-      (selectedSeries === "roadster" && car.series.includes("roadster"));
+      (selectedSeries === "atto" && car.series.includes("atto")) ||
+      (selectedSeries === "dolphin" && car.series === "dolphin") ||
+      (selectedSeries === "seal" && car.series.includes("seal")) ||
+      (selectedSeries === "m6" && car.series === "m6");
 
     const typeMatch = selectedType === "all" || car.type === selectedType;
     const tagMatch = selectedTag === "all" || car.tag === selectedTag;
@@ -41,36 +31,10 @@ export default function ModelPage() {
 
   // Group filtered cars by series category
   const groupedCars = {
-    "iX Series": filteredCarList.filter((car) => car.series.startsWith("ix")),
-    "i Series": filteredCarList.filter(
-      (car) => car.series.startsWith("i") && !car.series.startsWith("ix")
-    ),
-    "M Series": filteredCarList.filter((car) => car.series.startsWith("m")),
-    "X Series": filteredCarList.filter(
-      (car) => car.series.startsWith("x") && !car.series.startsWith("xm")
-    ),
-    "XM Series": filteredCarList.filter((car) => car.series.startsWith("xm")),
-    "Sedan Series": filteredCarList.filter(
-      (car) =>
-        car.series.includes("sedan") &&
-        !car.series.startsWith("i") &&
-        !car.series.startsWith("m")
-    ),
-    "Coupe Series": filteredCarList.filter(
-      (car) =>
-        car.series.includes("coupe") &&
-        !car.series.startsWith("m") &&
-        !car.series.includes("gran")
-    ),
-    "Gran Coupe Series": filteredCarList.filter((car) =>
-      car.series.includes("gran-coupe")
-    ),
-    "Convertible Series": filteredCarList.filter((car) =>
-      car.series.includes("convertible")
-    ),
-    "Roadster Series": filteredCarList.filter((car) =>
-      car.series.includes("roadster")
-    ),
+    "ATTO Series": filteredCarList.filter((car) => car.series.includes("atto")),
+    "DOLPHIN Series": filteredCarList.filter((car) => car.series === "dolphin"),
+    "SEAL Series": filteredCarList.filter((car) => car.series.includes("seal")),
+    "M6 Series": filteredCarList.filter((car) => car.series === "m6"),
   };
 
   return (
@@ -81,7 +45,7 @@ export default function ModelPage() {
         <div className="absolute inset-0">
           <Image
             src="/our-models.jpg"
-            alt="BMW Models"
+            alt="BYD Models"
             fill
             className="object-cover [object-position:50%_60%]"
             priority
@@ -100,38 +64,17 @@ export default function ModelPage() {
               Our Models
             </h1>
             <p className="text-xl md:text-2xl text-white/90 max-w-3xl mx-auto font-light">
-              Discover the future of electric mobility with BMW's innovative
+              Discover the future of electric mobility with BYD's innovative
               lineup
             </p>
           </motion.div>
-
-          {/* Scroll Indicator */}
-          {/* <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 1, duration: 0.8 }}
-            className="absolute bottom-8"
-          >
-            <div className="w-6 h-10 border-2 border-white/50 rounded-full flex justify-center">
-              <motion.div
-                animate={{ y: [0, 12, 0] }}
-                transition={{ repeat: Infinity, duration: 1.5 }}
-                className="w-1.5 h-1.5 bg-white rounded-full mt-2"
-              />
-            </div>
-          </motion.div> */}
         </div>
       </section>
 
       {/* Filter Section */}
       <section className="py-8 px-4 bg-white border-b border-gray-200">
         <div className="max-w-7xl mx-auto">
-          <motion.div
-            // initial={{ opacity: 0, y: 20 }}
-            // animate={{ opacity: 1, y: 0 }}
-            // transition={{ duration: 0.6 }}
-            className="flex flex-col md:flex-row gap-4 items-center justify-center"
-          >
+          <motion.div className="flex flex-col md:flex-row gap-4 items-center justify-center">
             {/* Series Filter */}
             <div className="w-full md:w-auto">
               <label className="block text-sm font-semibold text-gray-700 mb-2">
@@ -143,32 +86,28 @@ export default function ModelPage() {
                 className="w-full md:w-48 px-4 py-3 bg-white border-2 border-gray-300 rounded-lg text-gray-900 font-medium focus:border-blue-600 focus:ring-2 focus:ring-blue-600/20 outline-none transition-all cursor-pointer hover:border-gray-400"
               >
                 <option value="all">All Series</option>
-                <option value="ix">iX Series</option>
-                <option value="i">i Series</option>
-                <option value="m">M Series</option>
-                <option value="x">X Series</option>
-                <option value="xm">XM Series</option>
-                <option value="sedan">Sedan</option>
-                <option value="coupe">Coupe</option>
-                <option value="convertible">Convertible</option>
-                <option value="roadster">Roadster</option>
+                <option value="atto">ATTO Series</option>
+                <option value="dolphin">DOLPHIN</option>
+                <option value="seal">SEAL Series</option>
+                <option value="m6">M6</option>
               </select>
             </div>
 
             {/* Type Filter */}
             <div className="w-full md:w-auto">
               <label className="block text-sm font-semibold text-gray-700 mb-2">
-                Type
+                Tag
               </label>
               <select
-                value={selectedType}
-                onChange={(e) => setSelectedType(e.target.value)}
+                value={selectedTag}
+                onChange={(e) => setSelectedTag(e.target.value)}
                 className="w-full md:w-48 px-4 py-3 bg-white border-2 border-gray-300 rounded-lg text-gray-900 font-medium focus:border-blue-600 focus:ring-2 focus:ring-blue-600/20 outline-none transition-all cursor-pointer hover:border-gray-400"
               >
-                <option value="all">All Types</option>
-                <option value="electric">Electric</option>
-                <option value="hybrid">Hybrid</option>
-                <option value="petrol">Petrol</option>
+                <option value="all">All Tags</option>
+                <option value="suv">SUV</option>
+                <option value="sedan">Sedan</option>
+                <option value="hatchback">Hatchback</option>
+                <option value="mpv">MPV</option>
               </select>
             </div>
 
@@ -254,7 +193,8 @@ export default function ModelPage() {
                             src={car.path}
                             alt={car.name}
                             fill
-                            className="object-contain p-2"
+                            // className="object-contain p-2"
+                            className="object-contain p-2 scale-[.65]"
                           />
 
                           {/* Bottom Gradient Overlay - Always visible */}
@@ -339,7 +279,7 @@ export default function ModelPage() {
                   </div>
                 </motion.div>
               );
-            }
+            },
           )}
         </div>
       </section>
@@ -354,7 +294,7 @@ export default function ModelPage() {
             transition={{ duration: 0.6 }}
           >
             <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
-              Ready to Experience BMW?
+              Ready to Experience BYD?
             </h2>
             <p className="text-xl text-white/90 mb-8">
               Schedule a test drive and discover the future of driving
@@ -373,4 +313,6 @@ export default function ModelPage() {
       </section>
     </main>
   );
-}
+};
+
+export default ModelView;

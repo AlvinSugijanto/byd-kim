@@ -1,7 +1,8 @@
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { carListNew } from "@/lib/carListNew";
+import { carListNew } from "@/lib/carList";
 import CarDetailClient from "@/components/CarDetailClient";
+import ModelDetailView from "@/sections/model/model-detail-view";
 
 interface PageProps {
   params: Promise<{
@@ -105,6 +106,6 @@ export default async function CarDetailPage({ params }: PageProps) {
       : carListNew[0];
 
   return (
-    <CarDetailClient car={car} previousCar={previousCar} nextCar={nextCar} />
+    <ModelDetailView car={car} previousCar={previousCar} nextCar={nextCar} />
   );
 }

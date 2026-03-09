@@ -7,8 +7,8 @@ import Footer from "@/components/Footer";
 const raleway = Raleway({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "BMW Tunas Hayam Wuruk",
-  description: "Premium car rental services for your journey",
+  title: "BYD Indonesia",
+  description: "BYD Indonesia",
 };
 
 export default function RootLayout({

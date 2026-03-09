@@ -1,36 +1,15 @@
 "use client";
 
+import { ModelDetailProps } from "@/types/model";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 
-interface CarDetailClientProps {
-  car: {
-    name: string;
-    series: string;
-    path: string;
-    title?: string;
-    description?: string;
-    content?: Record<string, string | undefined>;
-    specCard?: string;
-  };
-  previousCar: {
-    name: string;
-    series: string;
-    path: string;
-  };
-  nextCar: {
-    name: string;
-    series: string;
-    path: string;
-  };
-}
-
-export default function CarDetailClient({
+export default function ModelDetailView({
   car,
   previousCar,
   nextCar,
-}: CarDetailClientProps) {
+}: ModelDetailProps) {
   // Download spec card function
   const handleDownloadSpecCard = () => {
     if (!car.specCard) return;

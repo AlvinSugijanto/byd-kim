@@ -13,16 +13,16 @@ export default function HeroMain() {
           src="/hero.jpg"
           alt="BMW Hero"
           fill
-          className="object-cover sm:object-center object-[10%_60%]"
+          className="object-cover sm:object-top scale-150"
           priority
         />
         {/* Dark Overlay for better text readability */}
-        <div className="absolute inset-0 bg-black/30" />
+        <div className="absolute inset-0 bg-black/10" />
       </div>
 
       {/* Content */}
       <div className="relative z-10 h-full flex items-center justify-center">
-        <div className="container mx-auto px-6">
+        <div className="container mx-auto px-6 mb-12">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
@@ -31,18 +31,14 @@ export default function HeroMain() {
           >
             {/* Main Heading */}
             <h1 className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-bold mb-6 leading-tight">
-              The Ultimate
+              Driven by Innovation
               <br />
-              <span className="">Driving Experience</span>
-              {/* <span className="text-transparent bg-clip-text bg-blue-400">
-                Driving Experience
-              </span> */}
             </h1>
 
             {/* Subheading */}
             <p className="text-xl md:text-2xl text-gray-200 mb-10 max-w-2xl mx-auto">
-              Discover the perfect blend of luxury, performance, and innovation
-              with BMW
+              Discover intelligent electric performance powered by cutting-edge
+              technology with BYD
             </p>
 
             {/* CTA Buttons */}
