@@ -127,7 +127,7 @@ export default function Header() {
                 key={link.name}
                 href={link.href}
                 className={cn(
-                  "relative flex items-center gap-1 font-normal transition-colors group px-6",
+                  "relative flex items-center gap-1 transition-colors group px-6",
                   showBackground
                     ? isActive
                       ? "text-blue-600"

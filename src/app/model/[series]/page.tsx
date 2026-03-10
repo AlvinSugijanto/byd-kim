@@ -1,7 +1,6 @@
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { carListNew } from "@/lib/carList";
-import CarDetailClient from "@/components/CarDetailClient";
+import { carList } from "@/lib/carList";
 import ModelDetailView from "@/sections/model/model-detail-view";
 
 interface PageProps {
@@ -15,7 +14,7 @@ export async function generateMetadata({
   params,
 }: PageProps): Promise<Metadata> {
   const { series } = await params;
-  const car = carListNew.find((c) => c.series === series);
+  const car = carList.find((c) => c.series === series);
 
   if (!car) {
     return {
@@ -29,29 +28,28 @@ export async function generateMetadata({
     car.description && car.description.length > 160
       ? car.description.substring(0, 157) + "..."
       : car.description ||
-        `Discover the ${car.name} - ${car.title || "Premium BMW vehicle"}`;
+        `Discover the ${car.name} - ${car.title || "Premium BYD vehicle"}`;
 
   // Generate keywords from car data
   const keywords = [
-    "BMW",
+    "BYD",
     car.name,
     car.series,
     car.type,
     car.tag,
-    "luxury car",
-    "premium vehicle",
+    "electric car",
+    "premium electric vehicle",
     "test drive",
-    "BMW Indonesia",
-    "BMW Tunas",
-    "BMW Hayam Wuruk",
+    "BYD Indonesia",
+    "BYD Dealer",
   ].filter(Boolean);
 
   return {
-    title: `${car.name} - BMW Tunas Hayam Wuruk`,
+    title: `${car.name} - BYD Indonesia`,
     description: seoDescription,
     keywords: keywords.join(", "),
     openGraph: {
-      title: `${car.name} - ${car.title || "BMW Tunas Hayam Wuruk"}`,
+      title: `${car.name} - ${car.title || "BYD Indonesia"}`,
       description: seoDescription,
       images: [
         {
@@ -62,11 +60,11 @@ export async function generateMetadata({
         },
       ],
       type: "website",
-      siteName: "BMW Tunas Hayam Wuruk",
+      siteName: "BYD Indonesia",
     },
     twitter: {
       card: "summary_large_image",
-      title: `${car.name} - BMW Tunas Hayam Wuruk`,
+      title: `${car.name} - BYD Indonesia`,
       description: seoDescription,
       images: [car.path],
     },
@@ -78,7 +76,7 @@ export async function generateMetadata({
 
 // Generate static params for all car series
 export async function generateStaticParams() {
-  return carListNew.map((car) => ({
+  return carList.map((car) => ({
     series: car.series,
   }));
 }
@@ -87,7 +85,7 @@ export default async function CarDetailPage({ params }: PageProps) {
   const { series } = await params;
 
   // Find the car by series
-  const car = carListNew.find((c) => c.series === series);
+  const car = carList.find((c) => c.series === series);
 
   // If car not found, show 404
   if (!car) {
@@ -95,15 +93,11 @@ export default async function CarDetailPage({ params }: PageProps) {
   }
 
   // Find current car index for navigation
-  const currentIndex = carListNew.findIndex((c) => c.series === series);
+  const currentIndex = carList.findIndex((c) => c.series === series);
   const previousCar =
-    currentIndex > 0
-      ? carListNew[currentIndex - 1]
-      : carListNew[carListNew.length - 1];
+    currentIndex > 0 ? carList[currentIndex - 1] : carList[carList.length - 1];
   const nextCar =
-    currentIndex < carListNew.length - 1
-      ? carListNew[currentIndex + 1]
-      : carListNew[0];
+    currentIndex < carList.length - 1 ? carList[currentIndex + 1] : carList[0];
 
   return (
     <ModelDetailView car={car} previousCar={previousCar} nextCar={nextCar} />

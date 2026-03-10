@@ -4,7 +4,7 @@ import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { carListNew } from "@/lib/carList";
+import { carList } from "@/lib/carList";
 
 const ModelView = () => {
   const [hoveredCard, setHoveredCard] = useState<number | null>(null);
@@ -15,7 +15,7 @@ const ModelView = () => {
   const [selectedTag, setSelectedTag] = useState<string>("all");
 
   // Apply filters to car list
-  const filteredCarList = carListNew.filter((car) => {
+  const filteredCarList = carList.filter((car) => {
     const seriesMatch =
       selectedSeries === "all" ||
       (selectedSeries === "atto" && car.series.includes("atto")) ||
@@ -28,6 +28,8 @@ const ModelView = () => {
 
     return seriesMatch && typeMatch && tagMatch;
   });
+
+  console.log(filteredCarList);
 
   // Group filtered cars by series category
   const groupedCars = {
@@ -71,82 +73,6 @@ const ModelView = () => {
         </div>
       </section>
 
-      {/* Filter Section */}
-      <section className="py-8 px-4 bg-white border-b border-gray-200">
-        <div className="max-w-7xl mx-auto">
-          <motion.div className="flex flex-col md:flex-row gap-4 items-center justify-center">
-            {/* Series Filter */}
-            <div className="w-full md:w-auto">
-              <label className="block text-sm font-semibold text-gray-700 mb-2">
-                Series
-              </label>
-              <select
-                value={selectedSeries}
-                onChange={(e) => setSelectedSeries(e.target.value)}
-                className="w-full md:w-48 px-4 py-3 bg-white border-2 border-gray-300 rounded-lg text-gray-900 font-medium focus:border-blue-600 focus:ring-2 focus:ring-blue-600/20 outline-none transition-all cursor-pointer hover:border-gray-400"
-              >
-                <option value="all">All Series</option>
-                <option value="atto">ATTO Series</option>
-                <option value="dolphin">DOLPHIN</option>
-                <option value="seal">SEAL Series</option>
-                <option value="m6">M6</option>
-              </select>
-            </div>
-
-            {/* Type Filter */}
-            <div className="w-full md:w-auto">
-              <label className="block text-sm font-semibold text-gray-700 mb-2">
-                Tag
-              </label>
-              <select
-                value={selectedTag}
-                onChange={(e) => setSelectedTag(e.target.value)}
-                className="w-full md:w-48 px-4 py-3 bg-white border-2 border-gray-300 rounded-lg text-gray-900 font-medium focus:border-blue-600 focus:ring-2 focus:ring-blue-600/20 outline-none transition-all cursor-pointer hover:border-gray-400"
-              >
-                <option value="all">All Tags</option>
-                <option value="suv">SUV</option>
-                <option value="sedan">Sedan</option>
-                <option value="hatchback">Hatchback</option>
-                <option value="mpv">MPV</option>
-              </select>
-            </div>
-
-            {/* Tag Filter */}
-            <div className="w-full md:w-auto">
-              <label className="block text-sm font-semibold text-gray-700 mb-2">
-                Tag
-              </label>
-              <select
-                value={selectedTag}
-                onChange={(e) => setSelectedTag(e.target.value)}
-                className="w-full md:w-48 px-4 py-3 bg-white border-2 border-gray-300 rounded-lg text-gray-900 font-medium focus:border-blue-600 focus:ring-2 focus:ring-blue-600/20 outline-none transition-all cursor-pointer hover:border-gray-400"
-              >
-                <option value="all">All Tags</option>
-                <option value="suv">SUV</option>
-                <option value="sedan">Sedan</option>
-                <option value="coupe">Coupe</option>
-                <option value="convertible">Convertible</option>
-                <option value="roadster">Roadster</option>
-              </select>
-            </div>
-
-            {/* Reset Button */}
-            <div className="w-full md:w-auto md:mt-7">
-              <button
-                onClick={() => {
-                  setSelectedSeries("all");
-                  setSelectedType("all");
-                  setSelectedTag("all");
-                }}
-                className="w-full md:w-auto px-6 py-3 bg-gray-900 hover:bg-gray-800 text-white font-semibold rounded-lg transition-all duration-300 shadow-md hover:shadow-lg"
-              >
-                Reset Filters
-              </button>
-            </div>
-          </motion.div>
-        </div>
-      </section>
-
       {/* Models Section - Grouped by Series */}
       <section className="py-12 px-4">
         <div className="max-w-7xl mx-auto space-y-20">
@@ -172,7 +98,7 @@ const ModelView = () => {
                   </div>
 
                   {/* Car Grid for this Series */}
-                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                     {cars.map((car, index) => (
                       <motion.div
                         key={car.series}

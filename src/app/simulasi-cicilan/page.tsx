@@ -3,7 +3,7 @@
 import { useState, useMemo } from "react";
 import { motion } from "framer-motion";
 import { FaMoneyBillWave, FaWhatsapp } from "react-icons/fa";
-import { carListNew } from "@/lib/carList";
+import { carList } from "@/lib/carList";
 
 export default function SimulasiCicilan() {
   const [selectedSeries, setSelectedSeries] = useState("");
@@ -13,7 +13,7 @@ export default function SimulasiCicilan() {
   // Get unique series from carList
   const seriesOptions = useMemo(() => {
     const uniqueSeries = Array.from(
-      new Set(carListNew.map((car) => car.series)),
+      new Set(carList.map((car) => car.series)),
     ).filter((series) => series);
     return uniqueSeries;
   }, []);

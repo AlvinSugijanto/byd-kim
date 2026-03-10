@@ -88,9 +88,9 @@ function CarouselSection() {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.8 }}
-        className="text-center mb-8"
+        className="text-center sm:my-16 my-10"
       >
-        <h2 className="text-3xl md:text-4xl font-mono font-semibold text-gray-700">
+        <h2 className="text-3xl md:text-5xl font-medium ">
           DISCOVER OUR MODEL
         </h2>
       </motion.div>
@@ -151,7 +151,7 @@ function CarouselSection() {
                       >
                         {/* Title */}
                         <motion.h3
-                          className="text-4xl md:text-6xl lg:text-7xl font-semibold text-white leading-tight tracking-tighter font-sans absolute"
+                          className="text-4xl md:text-6xl lg:text-7xl font-semibold text-white leading-tight tracking-tighter absolute"
                           style={{
                             left: `${image.position.title.x}%`,
                             top: `${image.position.title.y}%`,

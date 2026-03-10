@@ -3,97 +3,107 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
+import { FontControls, useFontControls } from "font-controls";
+import "font-controls/style.css";
 
 export default function HeroMain() {
+  const { config, setConfig } = useFontControls();
+
   return (
-    <section className="relative h-screen w-full overflow-hidden" id="home">
-      {/* Background Image */}
-      <div className="absolute inset-0">
-        <Image
-          src="/hero.jpg"
-          alt="BMW Hero"
-          fill
-          className="object-cover sm:object-top scale-150"
-          priority
-        />
-        {/* Dark Overlay for better text readability */}
-        <div className="absolute inset-0 bg-black/10" />
-      </div>
-
-      {/* Content */}
-      <div className="relative z-10 h-full flex items-center justify-center">
-        <div className="container mx-auto px-6 mb-12">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, delay: 0.2 }}
-            className="max-w-4xl mx-auto text-center text-white"
-          >
-            {/* Main Heading */}
-            <h1 className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-bold mb-6 leading-tight">
-              Driven by Innovation
-              <br />
-            </h1>
-
-            {/* Subheading */}
-            <p className="text-xl md:text-2xl text-gray-200 mb-10 max-w-2xl mx-auto">
-              Discover intelligent electric performance powered by cutting-edge
-              technology with BYD
-            </p>
-
-            {/* CTA Buttons */}
-            <div className="flex flex-col sm:flex-row gap-4 justify-center sm:px-0 px-4">
-              <Link href={"/model"}>
-                <motion.button
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-lg font-bold text-lg transition-all shadow-xl hover:shadow-2xl"
-                >
-                  Explore Models
-                </motion.button>
-              </Link>
-              <Link href={"/#request-demo"}>
-                <motion.button
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  className="bg-white/10 backdrop-blur-md hover:bg-white/20 text-white border-2 border-white px-8 py-4 rounded-lg font-bold text-lg transition-all"
-                >
-                  Book Test Drive
-                </motion.button>
-              </Link>
-            </div>
-          </motion.div>
+    <>
+      <section className="relative h-screen w-full overflow-hidden" id="home">
+        {/* Background Image */}
+        <div className="absolute inset-0">
+          <Image
+            src="/hero2.jpg"
+            alt="BMW Hero"
+            fill
+            className="object-cover sm:object-top scale-[100%]"
+            priority
+          />
+          {/* Dark Overlay for better text readability */}
+          {/* <div className="absolute inset-0 bg-black/5" /> */}
         </div>
-      </div>
 
-      {/* Scroll Indicator */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 1.5, duration: 1 }}
-        className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-10"
-      >
+        {/* Content */}
+        {!false && (
+          <div className="relative z-10 h-full flex items-center justify-center">
+            <div className="container mx-auto px-6 mb-12">
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 1, delay: 0.2 }}
+                className="absolute left-8 top-1/4 text-left"
+              >
+                {/* Main Heading */}
+                <h1
+                  className="text-4xl sm:text-5xl md:text-7xl lg:text-7xl text-white font-semibold mb-6"
+                  // style={config}
+                >
+                  BUILD YOUR DREAMS
+                </h1>
+
+                {/* Subheading */}
+                <p className="text-xl md:text-2xl text-gray-100 mb-6 ">
+                  Powering the world with clean electric innovation.
+                </p>
+
+                {/* CTA Buttons */}
+                <div className="flex flex-col sm:flex-row gap-4">
+                  <Link href={"/model"}>
+                    <motion.button
+                      whileHover={{ scale: 1.05 }}
+                      whileTap={{ scale: 0.95 }}
+                      className="bg-black text-white px-8 py-4 rounded-lg font-bold text-lg transition-all shadow-xl hover:shadow-2xl"
+                    >
+                      Explore Models
+                    </motion.button>
+                  </Link>
+                  <Link href={"/#request-demo"}>
+                    <motion.button
+                      whileHover={{ scale: 1.05 }}
+                      whileTap={{ scale: 0.95 }}
+                      className="bg-white/10 backdrop-blur-md hover:bg-white/20 text-white border-2 border-white px-8 py-4 rounded-lg font-bold text-lg transition-all"
+                    >
+                      Book Test Drive
+                    </motion.button>
+                  </Link>
+                </div>
+              </motion.div>
+            </div>
+          </div>
+        )}
+
+        {/* Scroll Indicator */}
         <motion.div
-          animate={{ y: [0, 10, 0] }}
-          transition={{ duration: 1.5, repeat: Infinity }}
-          className="text-white text-center"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 1.5, duration: 1 }}
+          className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-10"
         >
-          <p className="text-sm mb-2 opacity-80">Scroll to explore</p>
-          <svg
-            className="w-6 h-6 mx-auto"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
+          <motion.div
+            animate={{ y: [0, 10, 0] }}
+            transition={{ duration: 1.5, repeat: Infinity }}
+            className="text-white text-center"
           >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={2}
-              d="M19 14l-7 7m0 0l-7-7m7 7V3"
-            />
-          </svg>
+            <p className="text-sm mb-2 opacity-80">Scroll to explore</p>
+            <svg
+              className="w-6 h-6 mx-auto"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M19 14l-7 7m0 0l-7-7m7 7V3"
+              />
+            </svg>
+          </motion.div>
         </motion.div>
-      </motion.div>
-    </section>
+      </section>
+      {/* <FontControls value={config} onChange={setConfig} /> */}
+    </>
   );
 }
