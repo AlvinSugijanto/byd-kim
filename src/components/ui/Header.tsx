@@ -15,11 +15,11 @@ import { cn } from "@/lib/utils";
 import Image from "next/image";
 
 const navLinks = [
-  { name: "Home", href: "/#home", hasDropdown: false },
-  { name: "Models", href: "/model" },
+  { name: "Beranda", href: "/#home", hasDropdown: false },
+  { name: "Model", href: "/model" },
   { name: "Test Drive", href: "/#request-demo", hasDropdown: false },
 
-  { name: "Contact Us", href: "/#contact-us" },
+  { name: "Hubungi Kami", href: "/#contact-us" },
 ];
 
 export default function Header() {
@@ -160,7 +160,7 @@ export default function Header() {
           href={"/simulasi-cicilan"}
           className="hidden md:flex bg-blue-600 hover:bg-blue-700 text-white px-6 py-2.5 rounded-lg font-semibold shadow-md hover:shadow-lg items-center gap-2 text-sm"
         >
-          Simulate Installment
+          Simulasi Cicilan
           <FaArrowRight className="transform -rotate-45" />
         </Link>
 
@@ -207,7 +207,7 @@ export default function Header() {
             className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-semibold text-center transition-all flex items-center justify-center gap-2"
             onClick={() => setMobileMenuOpen(false)}
           >
-            Simulate Installment
+            Simulasi Cicilan
             <FaArrowRight className="text-sm transform -rotate-45" />
           </Link>
         </div>

@@ -44,7 +44,7 @@ export default function ContactUs() {
   };
 
   const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
   ) => {
     setFormData({
       ...formData,
@@ -52,12 +52,37 @@ export default function ContactUs() {
     });
   };
 
+  const items = [
+    {
+      link: `https://wa.me/6285117576041?text=${encodeURIComponent("Halo, saya ingin menghubungi BYD.")}`,
+      icon: <FaPhone />,
+      title: "Phone",
+      content: ["+6285117576041", "Senin - Minggu: 08:30 - 19:00"],
+      overlay: "Kirim Pesan Whatsapp",
+    },
+    {
+      link: `mailto:steven.putra@bmw-tunas.co.id`,
+      icon: <FaEnvelope />,
+      title: "Email",
+      content: ["steven.putra@bmw-tunas.co.id", "stevenbmwtunas@gmail.com"],
+      overlay: "Kirim Email",
+    },
+    {
+      link: `https://maps.app.goo.gl/3957v11111111111`,
+      icon: <FaMapMarkerAlt />,
+      title: "Lokasi",
+      content: [
+        "Jl. Prof. Dr. Soepomo No.17, Menteng Dalam, Kec. Tebet, Jakarta Selatan, DKI Jakarta 12870",
+      ],
+      overlay: "Kunjungi Showroom Kami",
+    },
+  ];
+
   return (
-    <section id="contact-us" className="py-20 border bg-gray-100">
+    <section id="contact-us" className="py-20 bg-slate-50">
       <div className="container mx-auto px-6">
-        <div className="max-w-6xl mx-auto">
-          {/* Section Header */}
-          <motion.div
+        {/* Section Header */}
+        {/* <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -71,77 +96,61 @@ export default function ContactUs() {
               Have questions about our BMW vehicles? We're here to help. Contact
               us today.
             </p>
+          </motion.div> */}
+
+        <div className="grid lg:grid-cols-1 gap-12">
+          {/* Contact Information */}
+          <motion.div
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="space-y-8"
+          >
+            <div>
+              <h3 className="text-2xl font-bold text-gray-900 mb-6">
+                Informasi Kontak
+              </h3>
+              <p className="text-gray-600 mb-8">
+                Hubungi kami melalui salah satu saluran ini, dan tim kami akan
+                segera membalas pesan Anda.
+              </p>
+            </div>
+
+            {/* Contact Cards */}
+            <div className="space-y-6 ">
+              {items.map((item, index) => (
+                <a
+                  key={index}
+                  href={item.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group relative flex items-start gap-4 p-6 bg-white rounded-xl border border-gray-200 overflow-hidden cursor-pointer shadow-sm hover:shadow-md transition-all"
+                >
+                  <div className="bg-gray-100 p-3 rounded-lg relative z-10 transition-colors group-hover:bg-gray-200">
+                    {item.icon}
+                  </div>
+                  <div className="relative z-10">
+                    <h4 className="font-semibold text-gray-900 mb-1 group-hover:text-gray-800 transition-colors">
+                      {item.title}
+                    </h4>
+                    {item.content.map((content) => (
+                      <p className="text-gray-600">{content}</p>
+                    ))}
+                    {/* <p className="text-gray-600">Mon - Sun: 8:30 AM - 7:00 PM</p> */}
+                  </div>
+                  <div className="absolute inset-0 bg-gray-900 -translate-x-full group-hover:translate-x-0 transition-transform duration-[700ms] ease-in-out flex items-center justify-center z-20">
+                    <p className="text-white font-semibold text-lg flex items-center gap-2">
+                      {item.icon} {item.overlay}
+                    </p>
+                  </div>
+                </a>
+              ))}
+            </div>
           </motion.div>
 
-          <div className="grid lg:grid-cols-2 gap-12">
-            {/* Contact Information */}
-            <motion.div
-              initial={{ opacity: 0, x: -30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-              className="space-y-8"
-            >
-              <div>
-                <h3 className="text-2xl font-bold text-gray-900 mb-6">
-                  Contact Information
-                </h3>
-                <p className="text-gray-600 mb-8">
-                  Reach out to us through any of these channels, and our team
-                  will get back to you as soon as possible.
-                </p>
-              </div>
-
-              {/* Contact Cards */}
-              <div className="space-y-6">
-                <div className="flex items-start gap-4 p-6 bg-white rounded-xl border border-gray-200 hover:border-blue-500 transition-all">
-                  <div className="bg-blue-100 p-3 rounded-lg">
-                    <FaPhone className="text-blue-600 text-xl" />
-                  </div>
-                  <div>
-                    <h4 className="font-semibold text-gray-900 mb-1">Phone</h4>
-                    <p className="text-gray-600">+6285117576041</p>
-                    <p className="text-gray-600">
-                      Mon - Sun: 8:30 AM - 7:00 PM
-                    </p>
-                  </div>
-                </div>
-
-                <div className="flex items-start gap-4 p-6 bg-white rounded-xl border border-gray-200 hover:border-blue-500 transition-all">
-                  <div className="bg-blue-100 p-3 rounded-lg">
-                    <FaEnvelope className="text-blue-600 text-xl" />
-                  </div>
-                  <div>
-                    <h4 className="font-semibold text-gray-900 mb-1">Email</h4>
-                    <p className="text-gray-600">
-                      steven.putra@bmw-tunas.co.id
-                    </p>
-                    <p className="text-gray-600">stevenbmwtunas@gmail.com</p>
-                  </div>
-                </div>
-
-                <div className="flex items-start gap-4 p-6 bg-white rounded-xl border border-gray-200 hover:border-blue-500 transition-all">
-                  <div className="bg-blue-100 p-3 rounded-lg">
-                    <FaMapMarkerAlt className="text-blue-600 text-xl" />
-                  </div>
-                  <div>
-                    <h4 className="font-semibold text-gray-900 mb-1">
-                      Location
-                    </h4>
-                    <p className="text-gray-600">
-                      Jalan Hayam Wuruk No. 51, Maphar, Taman Sari
-                      <br />
-                      Jakarta Barat
-                      <br />
-                      DKI Jakarta
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </motion.div>
-
-            {/* Contact Form */}
-            <motion.div
+          {/* Contact Form */}
+          {/* <motion.div
               initial={{ opacity: 0, x: 30 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
@@ -165,7 +174,7 @@ export default function ContactUs() {
                     name="name"
                     value={formData.name}
                     onChange={handleChange}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-1 focus:ring-gray-800 focus:border-gray-800"
                     placeholder="John Doe"
                   />
                 </div>
@@ -183,7 +192,7 @@ export default function ContactUs() {
                     name="email"
                     value={formData.email}
                     onChange={handleChange}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-1 focus:ring-gray-800 focus:border-gray-800"
                     placeholder="john@example.com"
                   />
                 </div>
@@ -201,7 +210,7 @@ export default function ContactUs() {
                     name="phone"
                     value={formData.phone}
                     onChange={handleChange}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-1 focus:ring-gray-800 focus:border-gray-800"
                     placeholder="+62 812 3456 7890"
                   />
                 </div>
@@ -219,23 +228,96 @@ export default function ContactUs() {
                     value={formData.message}
                     onChange={handleChange}
                     rows={5}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent resize-none"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-1 focus:ring-gray-800 focus:border-gray-800 resize-none"
                     placeholder="Tell us how we can help you..."
                   />
                 </div>
 
                 <button
                   type="submit"
-                  className="w-full bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-lg font-bold text-lg transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-1 flex items-center justify-center gap-3"
+                  className="w-full bg-gray-900 hover:bg-gray-800 text-white px-8 py-4 rounded-lg font-bold text-lg transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-1 flex items-center justify-center gap-3"
                 >
                   <FaPaperPlane />
                   Send Message
                 </button>
               </form>
-            </motion.div>
-          </div>
+            </motion.div> */}
         </div>
       </div>
     </section>
   );
+}
+
+{
+  /* <a
+                href={`https://wa.me/6285117576041?text=${encodeURIComponent("Halo, saya ingin menghubungi BYD.")}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group relative flex items-start gap-4 p-6 bg-white rounded-xl border border-gray-200 overflow-hidden cursor-pointer shadow-sm hover:shadow-md transition-all"
+              >
+                <div className="bg-gray-100 p-3 rounded-lg relative z-10 transition-colors group-hover:bg-gray-200">
+                  <FaPhone className="text-gray-800 text-xl" />
+                </div>
+                <div className="relative z-10">
+                  <h4 className="font-semibold text-gray-900 mb-1 group-hover:text-gray-800 transition-colors">
+                    Phone
+                  </h4>
+                  <p className="text-gray-600">+6285117576041</p>
+                  <p className="text-gray-600">Mon - Sun: 8:30 AM - 7:00 PM</p>
+                </div>
+                <div className="absolute inset-0 bg-gray-900 -translate-x-full group-hover:translate-x-0 transition-transform duration-[700ms] ease-in-out flex items-center justify-center z-20">
+                  <p className="text-white font-semibold text-lg flex items-center gap-2">
+                    <FaPhone /> Send Whatsapp Message
+                  </p>
+                </div>
+              </a>
+
+              <a
+                href="mailto:steven.putra@bmw-tunas.co.id"
+                className="group relative flex items-start gap-4 p-6 bg-white rounded-xl border border-gray-200 overflow-hidden cursor-pointer shadow-sm hover:shadow-md transition-all"
+              >
+                <div className="bg-gray-100 p-3 rounded-lg relative z-10 transition-colors group-hover:bg-gray-200">
+                  <FaEnvelope className="text-gray-800 text-xl" />
+                </div>
+                <div className="relative z-10">
+                  <h4 className="font-semibold text-gray-900 mb-1 group-hover:text-gray-800 transition-colors">
+                    Email
+                  </h4>
+                  <p className="text-gray-600">steven.putra@bmw-tunas.co.id</p>
+                  <p className="text-gray-600">stevenbmwtunas@gmail.com</p>
+                </div>
+                <div className="absolute inset-0 bg-gray-900 -translate-x-full group-hover:translate-x-0 transition-transform duration-[700ms] ease-in-out flex items-center justify-center z-20">
+                  <p className="text-white font-semibold text-lg flex items-center gap-2">
+                    <FaEnvelope /> Send an Email
+                  </p>
+                </div>
+              </a>
+
+              <a
+                href="https://maps.app.goo.gl/YourGoogleMapsLinkHere"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group relative flex items-start gap-4 p-6 bg-white rounded-xl border border-gray-200 overflow-hidden cursor-pointer shadow-sm hover:shadow-md transition-all"
+              >
+                <div className="bg-gray-100 p-3 rounded-lg relative z-10 transition-colors group-hover:bg-gray-200">
+                  <FaMapMarkerAlt className="text-gray-800 text-xl" />
+                </div>
+                <div className="relative z-10">
+                  <h4 className="font-semibold text-gray-900 mb-1 group-hover:text-gray-800 transition-colors">
+                    Location
+                  </h4>
+                  <p className="text-gray-600">
+                    Jalan Hayam Wuruk No. 51, Maphar, Taman Sari
+                    <br />
+                    Jakarta Barat
+                    <br />
+                    DKI Jakarta
+                  </p>
+                </div>
+                <div className="absolute inset-0 bg-gray-900 -translate-x-full group-hover:translate-x-0 transition-transform duration-[700ms] ease-in-out flex items-center justify-center z-20">
+                  <p className="text-white font-semibold text-lg flex items-center gap-2">
+                    <FaMapMarkerAlt /> View on Google Maps
+                  </p>
+                </div>
+              </a> */
 }

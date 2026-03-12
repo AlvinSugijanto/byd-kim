@@ -26,23 +26,10 @@ function CarouselSection() {
   // Array of carousel images with text content
   const carouselImages = [
     {
-      src: "/car-list/m4-coupe.webp",
-      alt: "The M4 Coupé",
-      title: "The M4 Coupé",
-      description: "The most powerful electric BMW M automobile",
-      showText: true,
-      position: {
-        title: { x: 0, y: 25 },
-        description: { x: 0, y: 35 },
-        button: { x: 0, y: 45 },
-      },
-      href: "/model/m4-coupe",
-    },
-    {
-      src: "/car-list/bmw-i7.avif",
-      alt: "THE I7 ",
-      title: "The I7 ",
-      description: "The most powerful electric BMW M automobile",
+      src: "/car-list/byd-atto3.webp",
+      alt: "BYD Atto 3",
+      title: "BYD Atto 3",
+      description: "Mobil listrik BMW M paling bertenaga",
       showText: true,
       position: {
         title: { x: 0, y: 25 },
@@ -51,12 +38,25 @@ function CarouselSection() {
       },
       href: "/model/i7-sedan",
     },
+    {
+      src: "/car-list/byd-atto1.webp",
+      alt: "BYD Atto 1",
+      title: "BYD Atto 1",
+      description: "Mobil listrik BMW M paling bertenaga",
+      showText: true,
+      position: {
+        title: { x: 0, y: 25 },
+        description: { x: 0, y: 35 },
+        button: { x: 0, y: 45 },
+      },
+      href: "/model/m4-coupe",
+    },
 
     {
-      src: "/car-list/bmw-3.avif",
-      alt: "The 3",
-      title: "The 3",
-      description: "Exclusive Design.",
+      src: "/car-list/byd-dolphin.webp",
+      alt: "BYD Dolphin",
+      title: "BYD Dolphin",
+      description: "Desain Eksklusif.",
       showText: true,
       position: {
         title: { x: 0, y: 25 },
@@ -66,10 +66,23 @@ function CarouselSection() {
       href: "/model/m3-touring",
     },
     {
-      src: "/car-list/bmw-m2.avif",
-      alt: "THE M2",
-      title: "The M2",
-      description: "The most powerful electric BMW M automobile",
+      src: "/car-list/byd-m6.webp",
+      alt: "BYD M6",
+      title: "BYD M6",
+      description: "Mobil listrik BMW M paling bertenaga",
+      showText: true,
+      position: {
+        title: { x: 0, y: 25 },
+        description: { x: 0, y: 35 },
+        button: { x: 0, y: 45 },
+      },
+      href: "/model/m2-coupe",
+    },
+    {
+      src: "/car-list/byd-seal.webp",
+      alt: "BYD SEAL",
+      title: "BYD SEAL",
+      description: "Mobil listrik BMW M paling bertenaga",
       showText: true,
       position: {
         title: { x: 0, y: 25 },
@@ -80,19 +93,72 @@ function CarouselSection() {
     },
   ];
 
+  // --- Heading Style Toggle State ---
+  const [headingStyle, setHeadingStyle] = useState<
+    "default" | "elegant" | "hitech"
+  >("hitech");
+
   return (
-    <div className="w-full my-10">
+    <div className="w-full mb-10 relative">
+      {/* Dev UI Toggle (Temporary, remove before production) */}
+      {/* <div className="absolute top-0 right-4 flex gap-2 z-50 text-xs text-gray-900 border border-gray-100 rounded-md p-2 bg-white/50 backdrop-blur-sm">
+        <span className="self-center font-semibold mr-2">Style:</span>
+        <button
+          onClick={() => setHeadingStyle("default")}
+          className={`px-3 py-1 rounded border transition-colors ${headingStyle === "default" ? "bg-black text-white" : "bg-white text-black hover:bg-gray-100"}`}
+        >
+          Default
+        </button>
+        <button
+          onClick={() => setHeadingStyle("elegant")}
+          className={`px-3 py-1 rounded border transition-colors ${headingStyle === "elegant" ? "bg-black text-white" : "bg-white text-black hover:bg-gray-100"}`}
+        >
+          Elegant
+        </button>
+        <button
+          onClick={() => setHeadingStyle("hitech")}
+          className={`px-3 py-1 rounded border transition-colors ${headingStyle === "hitech" ? "bg-black text-white" : "bg-white text-black hover:bg-gray-100"}`}
+        >
+          Hi-Tech
+        </button>
+      </div> */}
+
       {/* Heading */}
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.8 }}
-        className="text-center sm:my-16 my-10"
+        className={`text-center transition-all duration-300 ${headingStyle === "hitech" ? "sm:my-20 my-12" : headingStyle === "elegant" ? "sm:m-20 my-10 flex flex-col items-center" : "sm:my-16 my-10"}`}
       >
-        <h2 className="text-3xl md:text-5xl font-medium ">
-          DISCOVER OUR MODEL
-        </h2>
+        {headingStyle === "default" && (
+          <h2 className="text-3xl md:text-4xl font-medium">
+            JELAJAHI MODEL KAMI
+          </h2>
+        )}
+
+        {headingStyle === "elegant" && (
+          <>
+            <span className="text-car-blue font-semibold tracking-widest text-xs md:text-sm uppercase mb-3">
+              Jajaran Kami
+            </span>
+            <h2 className="text-3xl md:text-5xl font-light tracking-[0.1em] text-gray-900 uppercase">
+              Jelajahi Model Kami
+            </h2>
+            <div className="w-16 h-[2px] bg-gray-200 mt-6"></div>
+          </>
+        )}
+
+        {headingStyle === "hitech" && (
+          <>
+            <h2 className="text-4xl md:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-gray-900 to-gray-500 uppercase tracking-wider">
+              Jelajahi Model Kami
+            </h2>
+            <p className="mt-4 text-gray-500 font-light text-sm md:text-base max-w-xl mx-auto px-4">
+              Rasakan perpaduan sempurna antara performa, kemewahan, dan inovasi listrik.
+            </p>
+          </>
+        )}
       </motion.div>
 
       {/* Carousel */}
@@ -122,7 +188,7 @@ function CarouselSection() {
               },
             },
           }}
-          className="w-full aspect-[16/16] h-full sm:h-[600px]"
+          className="w-full aspect-[16/16] h-full sm:h-[670px]"
         >
           {carouselImages.map((image, index) => (
             <SwiperSlide key={index}>
@@ -184,7 +250,7 @@ function CarouselSection() {
                             }}
                           >
                             <button className="bg-white hover:bg-gray-100 text-gray-900 px-8 py-4 font-semibold text-sm md:text-base transition-all rounded-lg shadow-lg hover:shadow-xl transform hover:scale-105 tracking-wide uppercase">
-                              Explore Now
+                              Jelajahi Sekarang
                             </button>
                           </motion.div>
                         </Link>

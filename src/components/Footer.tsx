@@ -17,15 +17,12 @@ export default function Footer() {
           {/* Brand */}
           <div>
             <div className="flex items-center gap-2 mb-6">
-              <Logo width={50} />
-              <span className="text-2xl font-bold tracking-tighter block">
-                BMW
-              </span>
+              <Logo width={50} height={50} />
             </div>
             <p className="text-gray-300 mb-6 leading-relaxed">
-              Experience the ultimate driving pleasure with BMW Indonesia.
-              Discover our range of luxury vehicles designed for performance and
-              elegance.
+              Rasakan pengalaman berkendara yang luar biasa bersama BMW Indonesia.
+              Temukan rangkaian kendaraan mewah kami yang dirancang untuk performa
+              dan keanggunan.
             </p>
             <div className="flex gap-4">
               {[
@@ -58,14 +55,14 @@ export default function Footer() {
 
           {/* Models */}
           <div>
-            <h4 className="font-bold text-lg mb-6">Our Models</h4>
+            <h4 className="font-bold text-lg mb-6">Model Kami</h4>
             <ul className="space-y-3 text-gray-300">
               {[
-                { name: "Electric Vehicles", href: "/model?type=electric" },
-                { name: "SUV Series", href: "/model?tag=suv" },
-                { name: "Sedan Series", href: "/model?tag=sedan" },
+                { name: "Kendaraan Listrik", href: "/model?type=electric" },
+                { name: "Seri SUV", href: "/model?tag=suv" },
+                { name: "Seri Sedan", href: "/model?tag=sedan" },
                 { name: "M Performance", href: "/model" },
-                { name: "View All Models", href: "/model" },
+                { name: "Lihat Semua Model", href: "/model" },
               ].map((link) => (
                 <li key={link.name}>
                   <Link
@@ -81,14 +78,14 @@ export default function Footer() {
 
           {/* Quick Links */}
           <div>
-            <h4 className="font-bold text-lg mb-6">Quick Links</h4>
+            <h4 className="font-bold text-lg mb-6">Tautan Cepat</h4>
             <ul className="space-y-3 text-gray-300">
               {[
-                { name: "About BMW", href: "/#about" },
+                { name: "Tentang BMW", href: "/#about" },
                 { name: "Test Drive", href: "/#contact-us" },
-                { name: "Contact Us", href: "/#contact-us" },
-                { name: "Find a Dealer", href: "/#contact-us" },
-                { name: "Customer Service", href: "/#contact-us" },
+                { name: "Hubungi Kami", href: "/#contact-us" },
+                { name: "Cari Dealer", href: "/#contact-us" },
+                { name: "Layanan Pelanggan", href: "/#contact-us" },
               ].map((link) => (
                 <li key={link.name}>
                   <Link
@@ -104,7 +101,7 @@ export default function Footer() {
 
           {/* Contact Info */}
           <div>
-            <h4 className="font-bold text-lg mb-6">Contact Info</h4>
+            <h4 className="font-bold text-lg mb-6">Info Kontak</h4>
             <ul className="space-y-4 text-gray-300">
               <li className="flex items-start gap-3">
                 <svg
@@ -175,16 +172,16 @@ export default function Footer() {
         </div>
 
         <div className="border-t border-white/20 pt-8 flex flex-col md:flex-row justify-between items-center text-gray-400 text-sm">
-          <p>© 2026 BMW Indonesia. All rights reserved.</p>
+          <p>© 2026 BMW Indonesia. Hak Cipta Dilindungi.</p>
           <div className="flex gap-6 mt-4 md:mt-0">
             <a href="#" className="hover:text-white transition-colors">
-              Privacy Policy
+              Kebijakan Privasi
             </a>
             <a href="#" className="hover:text-white transition-colors">
-              Terms of Service
+              Syarat dan Ketentuan
             </a>
             <a href="#" className="hover:text-white transition-colors">
-              Cookie Policy
+              Kebijakan Cookie
             </a>
           </div>
         </div>

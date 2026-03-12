@@ -94,7 +94,7 @@ const ModelView = () => {
                     <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-3">
                       {seriesName}
                     </h2>
-                    <div className="w-24 h-1 bg-blue-600 rounded-full"></div>
+                    <div className="w-24 h-1 bg-gray-700 rounded-full"></div>
                   </div>
 
                   {/* Car Grid for this Series */}

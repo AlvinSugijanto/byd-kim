@@ -3,15 +3,73 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
-import { FontControls, useFontControls } from "font-controls";
-import "font-controls/style.css";
+import { useState } from "react";
+// import { FontControls, useFontControls } from "font-controls";
+// import "font-controls/style.css";
 
 export default function HeroMain() {
-  const { config, setConfig } = useFontControls();
+  // const { config, setConfig } = useFontControls();
+  const [headingStyle, setHeadingStyle] = useState<
+    "default" | "neon" | "metallic" | "minimal" | "gold"
+  >("minimal");
+
+  const getHeadingClasses = () => {
+    const base =
+      "text-5xl sm:text-6xl md:text-7xl lg:text-[5.5rem] mb-6 tracking-tighter";
+    switch (headingStyle) {
+      case "neon":
+        return `${base} font-black text-white`;
+      case "metallic":
+        return `${base} font-black text-transparent bg-clip-text bg-gradient-to-b from-gray-200 via-gray-400 to-gray-600`;
+      case "minimal":
+        return `${base} font-normal -skew-x-12 text-white tracking-[0.2em] uppercase`;
+      case "gold":
+        return `${base} font-black text-transparent bg-clip-text bg-gradient-to-br from-yellow-200 via-yellow-400 to-yellow-600`;
+      case "default":
+      default:
+        return `${base} font-black text-transparent bg-clip-text bg-gradient-to-br from-white via-blue-50 to-gray-400`;
+    }
+  };
+
+  const getHeadingStyleObj = () => {
+    switch (headingStyle) {
+      case "neon":
+        return { textShadow: "0 0 10px #0ff, 0 0 20px #0ff, 0 0 30px #0ff" };
+      case "metallic":
+        return { filter: "drop-shadow(0px 2px 2px rgba(0,0,0,0.8))" };
+      case "minimal":
+        return { textShadow: "none" };
+      case "gold":
+        return { filter: "drop-shadow(0px 5px 10px rgba(0,0,0,0.5))" };
+      case "default":
+      default:
+        return { filter: "drop-shadow(0px 10px 20px rgba(0,0,0,0.3))" };
+    }
+  };
 
   return (
     <>
       <section className="relative h-screen w-full overflow-hidden" id="home">
+        {/* Style Selection Toggle (Temporary) */}
+        {/* <div className="absolute top-24 left-1/2 transform -translate-x-1/2 flex gap-2 z-50 text-xs text-gray-900 border border-gray-100/20 rounded-md p-2 bg-white/10 backdrop-blur-md">
+          <span className="self-center font-semibold text-white mr-2">
+            Style:
+          </span>
+          {["default", "neon", "metallic", "minimal", "gold"].map((style) => (
+            <button
+              key={style}
+              onClick={() => setHeadingStyle(style as any)}
+              className={`px-3 py-1.5 rounded-md transition-all uppercase tracking-wider text-[10px] font-bold ${
+                headingStyle === style
+                  ? "bg-white text-black"
+                  : "bg-black/30 text-white hover:bg-black/50"
+              }`}
+            >
+              {style}
+            </button>
+          ))}
+        </div> */}
+
         {/* Background Image */}
         <div className="absolute inset-0">
           <Image
@@ -37,15 +95,15 @@ export default function HeroMain() {
               >
                 {/* Main Heading */}
                 <h1
-                  className="text-4xl sm:text-5xl md:text-7xl lg:text-7xl text-white font-semibold mb-6"
-                  // style={config}
+                  className={getHeadingClasses()}
+                  style={getHeadingStyleObj()}
                 >
                   BUILD YOUR DREAMS
                 </h1>
 
                 {/* Subheading */}
                 <p className="text-xl md:text-2xl text-gray-100 mb-6 ">
-                  Powering the world with clean electric innovation.
+                  Memberdayakan dunia dengan inovasi listrik yang bersih.
                 </p>
 
                 {/* CTA Buttons */}
@@ -56,7 +114,7 @@ export default function HeroMain() {
                       whileTap={{ scale: 0.95 }}
                       className="bg-black text-white px-8 py-4 rounded-lg font-bold text-lg transition-all shadow-xl hover:shadow-2xl"
                     >
-                      Explore Models
+                      Jelajahi Model
                     </motion.button>
                   </Link>
                   <Link href={"/#request-demo"}>
@@ -65,7 +123,7 @@ export default function HeroMain() {
                       whileTap={{ scale: 0.95 }}
                       className="bg-white/10 backdrop-blur-md hover:bg-white/20 text-white border-2 border-white px-8 py-4 rounded-lg font-bold text-lg transition-all"
                     >
-                      Book Test Drive
+                      Pesan Test Drive
                     </motion.button>
                   </Link>
                 </div>
@@ -86,7 +144,7 @@ export default function HeroMain() {
             transition={{ duration: 1.5, repeat: Infinity }}
             className="text-white text-center"
           >
-            <p className="text-sm mb-2 opacity-80">Scroll to explore</p>
+            <p className="text-sm mb-2 opacity-80">Gulir untuk menjelajahi</p>
             <svg
               className="w-6 h-6 mx-auto"
               fill="none"

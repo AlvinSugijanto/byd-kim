@@ -1,8 +1,8 @@
 "use client";
 
-import { motion } from "framer-motion";
 import Image from "next/image";
 import { useState } from "react";
+import { motion } from "framer-motion";
 
 export default function RequestDemo() {
   const [formData, setFormData] = useState({
@@ -16,7 +16,7 @@ export default function RequestDemo() {
 
     // Build WhatsApp message
     const phoneNumber = "6285117576041"; // Ganti dengan nomor WA yang sesuai
-    let message = "Halo, saya ingin request test drive BMW.%0A%0A";
+    let message = "Halo, saya ingin request test drive BYD.%0A%0A";
 
     if (formData.name) {
       message += `Nama: ${formData.name}%0A`;
@@ -42,181 +42,84 @@ export default function RequestDemo() {
     });
   };
 
-  // ============================================================
-  // 🎨 DESIGN VARIATIONS - Uncomment ONE option at a time
-  // ============================================================
-
-  // OPTION 1: Dark & Dramatic (requestdemo.png)
-  const bgImage = "/requestdemo.png";
-  const headingClass =
-    "text-5xl md:text-7xl font-bold text-white mb-6 leading-tight uppercase tracking-tight";
-  const subheadingClass =
-    "text-lg md:text-xl text-gray-200 mb-8 leading-relaxed max-w-xl";
-  const featuresClass = "mt-8 flex flex-wrap gap-6 text-sm text-gray-300";
-  const inputClass =
-    "px-5 py-4 bg-white/10 backdrop-blur-md border border-white/20 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent transition-all text-white placeholder-gray-300";
-  const overlayClass = "";
-
   return (
-    <section id="request-demo" className="relative py-20">
-      {/* Background Image */}
-      <div className="absolute inset-0">
-        <Image
-          src={bgImage}
-          alt="BMW Electric Vehicle Demo"
-          fill
-          className="object-cover md:object-bottom [object-position:80%_60%]"
-          priority
-        />
-        {/* Overlay - changes per design option */}
-        {overlayClass && <div className={overlayClass}></div>}
-      </div>
+    <section id="request-demo" className="w-full bg-white mb-10 overflow-hidden">
+      <div className="flex flex-col md:flex-row w-full min-h-[500px]">
+        {/* Left side: Image */}
+        <motion.div 
+          initial={{ opacity: 0, x: -50 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.8 }}
+          className="xs:block hidden w-full md:w-1/2 relative min-h-[300px] md:min-h-[500px]"
+        >
+          <Image
+            src="/test-drive.png"
+            alt="BYD Fleet"
+            fill
+            className="object-cover"
+            priority
+          />
+        </motion.div>
 
-      {/* Content */}
-      <div className="container mx-auto px-6 h-full relative z-10">
-        <div className="flex items-center h-full">
-          <div className="max-w-2xl">
-            {/* Main Heading */}
-            <motion.h2
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8 }}
-              className={headingClass}
-            >
-              Experience the{" "}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-300">
-                Future
-              </span>
-            </motion.h2>
+        {/* Right side: Content */}
+        <motion.div 
+          initial={{ opacity: 0, x: 50 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.8, delay: 0.2 }}
+          className="w-full md:w-1/2 flex items-center justify-start p-8 md:p-16 lg:px-24 bg-white"
+        >
+          <div className="max-w-xl text-left w-full">
+            <h2 className="text-3xl md:text-4xl text-[#1a1a1a] font-normal mb-6 tracking-wide">
+              Jelajahi Penawaran BYD
+            </h2>
+            <p className="text-gray-600 mb-8 leading-relaxed text-[15px]">
+              Pilih antara kendaraan 100% listrik atau hibrida plug-in. Bersama BYD, 
+              teknologi canggih, keselamatan, dan kepercayaan berkendara berpadu
+              untuk membantu Anda mewujudkan mobil impian.
+            </p>
 
-            {/* Subheading */}
-            <motion.p
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-              className={subheadingClass}
-            >
-              Schedule your personalized test drive today and discover the
-              revolutionary BMW electric driving experience. Limited slots
-              available.
-            </motion.p>
-
-            {/* Compact Form */}
-            <motion.form
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8, delay: 0.4 }}
-              onSubmit={handleSubmit}
-              className="space-y-4 max-w-xl"
-            >
-              <div className="grid md:grid-cols-3 gap-3">
+            <form onSubmit={handleSubmit} className="space-y-4 w-full">
+              <div className="flex flex-col space-y-4">
                 <input
                   type="text"
                   name="name"
-                  placeholder="Your Name (Optional)"
+                  placeholder="Nama Lengkap"
                   value={formData.name}
                   onChange={handleChange}
-                  className={inputClass}
+                  className="w-full px-4 py-3 border border-gray-300 rounded-sm focus:outline-none focus:ring-1 focus:ring-gray-800 focus:border-gray-800 transition-colors text-gray-800 placeholder-gray-400"
+                  required
                 />
                 <input
                   type="email"
                   name="email"
-                  placeholder="Email (Optional)"
+                  placeholder="Alamat Email"
                   value={formData.email}
                   onChange={handleChange}
-                  className={inputClass}
+                  className="w-full px-4 py-3 border border-gray-300 rounded-sm focus:outline-none focus:ring-1 focus:ring-gray-800 focus:border-gray-800 transition-colors text-gray-800 placeholder-gray-400"
+                  required
                 />
                 <input
                   type="tel"
                   name="phone"
-                  placeholder="Phone (Optional)"
+                  placeholder="Nomor Telepon"
                   value={formData.phone}
                   onChange={handleChange}
-                  className={inputClass}
+                  className="w-full px-4 py-3 border border-gray-300 rounded-sm focus:outline-none focus:ring-1 focus:ring-gray-800 focus:border-gray-800 transition-colors text-gray-800 placeholder-gray-400"
+                  required
                 />
               </div>
               <button
                 type="submit"
-                className="w-full md:w-auto bg-blue-600 hover:bg-blue-700 text-white px-10 py-4 rounded-lg font-bold text-base transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 uppercase tracking-wide"
+                className="w-full md:w-auto inline-block bg-white border border-gray-800 text-gray-800 px-10 py-3 mt-4 uppercase text-sm font-medium tracking-wide hover:bg-gray-800 hover:text-white transition-colors duration-300"
               >
-                Request Test Drive
+                PESAN TEST DRIVE
               </button>
-            </motion.form>
-
-            {/* Features List */}
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8, delay: 0.6 }}
-              className={featuresClass}
-            >
-              <div className="flex items-center gap-2">
-                <svg
-                  className="w-5 h-5 text-blue-500"
-                  fill="currentColor"
-                  viewBox="0 0 20 20"
-                >
-                  <path
-                    fillRule="evenodd"
-                    d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                    clipRule="evenodd"
-                  />
-                </svg>
-                <span>Free Test Drive</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <svg
-                  className="w-5 h-5 text-blue-500"
-                  fill="currentColor"
-                  viewBox="0 0 20 20"
-                >
-                  <path
-                    fillRule="evenodd"
-                    d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                    clipRule="evenodd"
-                  />
-                </svg>
-                <span>Expert Consultation</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <svg
-                  className="w-5 h-5 text-blue-500"
-                  fill="currentColor"
-                  viewBox="0 0 20 20"
-                >
-                  <path
-                    fillRule="evenodd"
-                    d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                    clipRule="evenodd"
-                  />
-                </svg>
-                <span>Flexible Scheduling</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <svg
-                  className="w-5 h-5 text-blue-500"
-                  fill="currentColor"
-                  viewBox="0 0 20 20"
-                >
-                  <path
-                    fillRule="evenodd"
-                    d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                    clipRule="evenodd"
-                  />
-                </svg>
-                <span>No Obligation</span>
-              </div>
-            </motion.div>
+            </form>
           </div>
-        </div>
+        </motion.div>
       </div>
-
-      {/* Decorative Elements */}
-      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-[var(--dark)] to-transparent pointer-events-none"></div>
     </section>
   );
 }
