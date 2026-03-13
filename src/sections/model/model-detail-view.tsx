@@ -8,6 +8,7 @@ import { CardSim, Download, File, Flashlight } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { GrDocument, GrDocumentLocked } from "react-icons/gr";
+import contactInfo from "@/lib/contactInfo";
 
 export default function ModelDetailView({
   car,
@@ -57,7 +58,7 @@ export default function ModelDetailView({
             >
               {/* "THE" prefix */}
               <p className="text-base sm:text-xl ml-1.5 tracking-[0.4em] text-gray-800 font-normal uppercase mb-2">
-                THE
+                BYD
               </p>
 
               {/* Car Name - Clean and Bold */}
@@ -79,7 +80,7 @@ export default function ModelDetailView({
               whileHover={{ scale: 1.0 }}
               whileTap={{ scale: 0.95 }}
               onClick={handleDownloadSpecCard}
-              className="bg-gray-800 text-white px-6 py-3 font-semibold hover:bg-blue-700 transition-all duration-300 shadow-lg flex items-center gap-2 w-full justify-center cursor-pointer"
+              className="bg-gray-800 text-white px-6 py-3 font-semibold hover:bg-gray-700 transition-all duration-300 shadow-lg flex items-center gap-2 w-full justify-center cursor-pointer"
             >
               {/* <CardSim /> */}
               Download Spec Card
@@ -98,12 +99,11 @@ export default function ModelDetailView({
             whileHover={{ scale: 1.0 }}
             whileTap={{ scale: 0.95 }}
             onClick={() => {
-              const phoneNumber = "6285117576041"; // Ganti dengan nomor WA yang sesuai
               const message = `Halo, saya tertarik untuk request test drive untuk *${car.name}*.%0A%0ASaya ingin mendapatkan informasi lebih lanjut mengenai:%0A- Jadwal test drive yang tersedia%0A- Lokasi test drive%0A- Promo dan penawaran terbaru%0A%0ATerima kasih!`;
-              const whatsappUrl = `https://wa.me/${phoneNumber}?text=${message}`;
+              const whatsappUrl = `${contactInfo.waLink}?text=${message}`;
               window.open(whatsappUrl, "_blank");
             }}
-            className="bg-white text-blue-600 px-6 py-3 font-semibold hover:bg-gray-100 transition-all duration-300 shadow-lg border-2 border-blue-600 flex items-center gap-2 w-full justify-center cursor-pointer"
+            className="bg-white text-gray-600 px-6 py-3 font-semibold hover:bg-gray-100 transition-all duration-300 shadow-lg border-2 border-gray-600 flex items-center gap-2 w-full justify-center cursor-pointer"
           >
             {/* <Flashlight /> */}
             Request Test Drive
@@ -149,8 +149,8 @@ export default function ModelDetailView({
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
             >
-              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-8 text-center">
-                Technical Specifications
+              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6 text-center">
+                Spesifikasi Kendaraan
               </h2>
               <div className="w-36 h-1 bg-gray-800 rounded-full mx-auto mb-24"></div>
 
@@ -173,9 +173,9 @@ export default function ModelDetailView({
                   <Image
                     src={car.path}
                     alt={car.name}
-                    width={1000}
-                    height={1000}
-                    className="object-contain w-full h-auto relative z-10 scale-[80%]"
+                    width={1200}
+                    height={700}
+                    className="object-contain w-full h-auto relative z-10 scale-75"
                   />
                 </motion.div>
 
@@ -230,8 +230,45 @@ export default function ModelDetailView({
             </motion.div>
           </div>
         </section>
+
+        {/* CTA Section */}
+        <section className="py-36 px-4 bg-gray-900">
+          <div className="max-w-4xl mx-auto text-center">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+            >
+              <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
+                Tertarik dengan {car.name}?
+              </h2>
+              <p className="text-xl text-gray-400 mb-8">
+                Jadwalkan test drive dan rasakan sensasinya secara langsung
+              </p>
+              <Link
+                href={`${contactInfo.waLink}?text=${encodeURIComponent(
+                  "Halo, saya tertarik dengan " +
+                    car.name +
+                    "\n\n" +
+                    "Saya ingin test drive",
+                )}`}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <motion.button
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  className="bg-white text-gray-900 px-10 py-4 rounded-full font-bold text-lg hover:bg-gray-100 transition-all duration-300 shadow-xl"
+                >
+                  Hubungi Kami
+                </motion.button>
+              </Link>
+            </motion.div>
+          </div>
+        </section>
         {/* Navigation Section */}
-        <section className="py-16 px-4 bg-gradient-to-br from-gray-50 to-white border-t border-gray-200">
+        <section className="py-16 px-4 ">
           <div className="max-w-5xl mx-auto">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -240,7 +277,7 @@ export default function ModelDetailView({
               transition={{ duration: 0.6 }}
             >
               <h3 className="text-2xl font-bold text-gray-900 mb-8 text-center">
-                Explore More Models
+                Jelajah Model Lain
               </h3>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -258,7 +295,7 @@ export default function ModelDetailView({
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
                     <div className="absolute bottom-4 left-4 right-4">
-                      <p className="text-sm text-blue-500 mb-1 font-semibold">
+                      <p className="text-sm text-gray-500 mb-1 font-semibold">
                         &lt;&lt; Previous
                       </p>
                       <p className="text-xl font-bold text-white">
@@ -282,7 +319,7 @@ export default function ModelDetailView({
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
                     <div className="absolute bottom-4 right-4">
-                      <p className="text-sm text-blue-500 mb-1 font-semibold text-right">
+                      <p className="text-sm text-gray-500 mb-1 font-semibold text-right">
                         Next &gt;&gt;
                       </p>
                       <p className="text-xl font-bold text-white">
@@ -292,33 +329,6 @@ export default function ModelDetailView({
                   </div>
                 </Link>
               </div>
-            </motion.div>
-          </div>
-        </section>
-        {/* CTA Section */}
-        <section className="py-20 px-4 bg-gradient-to-r from-blue-600 to-blue-800">
-          <div className="max-w-4xl mx-auto text-center">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-            >
-              <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
-                Interested in {car.name}?
-              </h2>
-              <p className="text-xl text-white/90 mb-8">
-                Schedule a test drive and experience the thrill firsthand
-              </p>
-              <Link href="/#contact-us">
-                <motion.button
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  className="bg-white text-blue-600 px-10 py-4 rounded-full font-bold text-lg hover:bg-gray-100 transition-all duration-300 shadow-xl"
-                >
-                  Contact Us
-                </motion.button>
-              </Link>
             </motion.div>
           </div>
         </section>

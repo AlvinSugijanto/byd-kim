@@ -16,8 +16,8 @@ export default function Footer() {
 
   return (
     <section className="text-white sm:pt-16 md:pt-20 pt-8 pb-10 bg-gray-900">
-      <div className="container mx-auto px-4">
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
+      <div className="container mx-auto px-8 sm:px-4">
+        <div className="grid xs:grid-cols-2 lg:grid-cols-4 gap-6 xs:gap-12 mb-16">
           {/* Brand */}
           <div>
             <div className="flex items-center gap-2 mb-6">
@@ -28,7 +28,7 @@ export default function Footer() {
               Indonesia. Temukan rangkaian kendaraan mewah kami yang dirancang
               untuk performa dan keanggunan.
             </p>
-            <div className="flex gap-4">
+            {/* <div className="flex gap-4">
               {[
                 {
                   Icon: FaFacebookF,
@@ -54,7 +54,7 @@ export default function Footer() {
                   <Icon className="text-sm" />
                 </a>
               ))}
-            </div>
+            </div> */}
           </div>
 
           {/* Models */}

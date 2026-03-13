@@ -13,7 +13,7 @@ import contactInfo from "@/lib/contactInfo";
 export default function ContactUs() {
   const items = [
     {
-      link: `https://wa.me/${contactInfo.phone}?text=${encodeURIComponent("Halo, saya ingin menghubungi BYD.")}`,
+      link: `${contactInfo.waLink}?text=${encodeURIComponent("Halo, saya ingin menghubungi BYD.")}`,
       icon: <FaPhone />,
       title: "Phone",
       content: [contactInfo.phone, "Senin - Minggu: 08:30 - 19:00"],
@@ -61,7 +61,7 @@ export default function ContactUs() {
             <div className="space-y-6 ">
               {items.map((item, index) => (
                 <a
-                  key={index}
+                  key={item.link}
                   href={item.link}
                   target="_blank"
                   rel="noopener noreferrer"

@@ -52,7 +52,7 @@ Mohon informasi lebih lanjut. Terima kasih!`;
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100 pt-[72px] font-sans">
+    <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100 pt-[65px] font-sans">
       {/* Main Content */}
       <div className="container mx-auto px-6 py-12">
         <motion.div
@@ -148,7 +148,7 @@ Mohon informasi lebih lanjut. Terima kasih!`;
                 className="w-full hover:cursor-pointer bg-transparent border-2 border-gray-600 hover:bg-gray-800 text-gray-600 hover:text-white px-6  transition-colors duration-300 py-4 rounded-lg font-bold shadow-lg hover:shadow-xl flex items-center justify-center gap-3 text-lg"
               >
                 <FaWhatsapp className="text-2xl" />
-                Ask Our Sales
+                Ajukan Cicilan
               </button>
             </form>
           </motion.div>

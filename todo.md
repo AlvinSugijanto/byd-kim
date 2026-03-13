@@ -1,4 +1,5 @@
--add spec card download
 -add car variants (done)
 -footer bikin jadi overflow(done)
--car detail bikin pakai background header nya
+-car detail page, bagian spec nya itu gambarnya masih ke crop(done)
+-car detail hero section bikin pakai background yang bagus
+-add spec card download

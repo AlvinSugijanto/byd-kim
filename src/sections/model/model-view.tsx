@@ -25,28 +25,28 @@ const ModelView = () => {
         {/* Background Image */}
         <div className="absolute inset-0">
           <Image
-            src="/our-models.jpg"
+            src="/our-models.png"
             alt="BYD Models"
             fill
-            className="object-cover [object-position:50%_60%]"
+            className="object-cover [object-position:50%_80%]"
             priority
           />
           <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/30 to-black/70" />
         </div>
 
         {/* Hero Content */}
-        <div className="relative z-10 h-full flex flex-col items-center justify-center text-center px-4">
+        <div className="relative z-10 h-full flex flex-col items-start justify-evenly text-start px-4">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
+            className="mb-24 sm:mb-40 px-8 sm:px-16"
           >
-            <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold text-white mb-6 tracking-tight">
-              Our Models
+            <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold text-white mb-6 tracking-tight">
+              Model
             </h1>
-            <p className="text-xl md:text-2xl text-white/90 max-w-3xl mx-auto font-light">
-              Discover the future of electric mobility with BYD's innovative
-              lineup
+            <p className="text-md sm:text-xl md:text-2xl text-white/90 max-w-3xl mx-auto font-light">
+              Temukan masa depan mobilitas listrik bersama lineup inovatif BYD
             </p>
           </motion.div>
         </div>
@@ -174,7 +174,7 @@ const ModelView = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 px-4 bg-gradient-to-r from-blue-600 to-blue-800">
+      {/* <section className="py-20 px-4 bg-gradient-to-r from-blue-600 to-blue-800">
         <div className="max-w-4xl mx-auto text-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -199,7 +199,7 @@ const ModelView = () => {
             </Link>
           </motion.div>
         </div>
-      </section>
+      </section> */}
     </main>
   );
 };
