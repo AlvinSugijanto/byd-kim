@@ -1,0 +1,4 @@
+-add spec card download
+-add car variants (done)
+-footer bikin jadi overflow(done)
+-car detail bikin pakai background header nya

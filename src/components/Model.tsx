@@ -29,7 +29,7 @@ function CarouselSection() {
       src: "/car-list/byd-atto3.webp",
       alt: "BYD Atto 3",
       title: "BYD Atto 3",
-      description: "Mobil listrik BMW M paling bertenaga",
+      description: "Mobil listrik BYD M paling bertenaga",
       showText: true,
       position: {
         title: { x: 0, y: 25 },
@@ -42,7 +42,7 @@ function CarouselSection() {
       src: "/car-list/byd-atto1.webp",
       alt: "BYD Atto 1",
       title: "BYD Atto 1",
-      description: "Mobil listrik BMW M paling bertenaga",
+      description: "Mobil listrik BYD M paling bertenaga",
       showText: true,
       position: {
         title: { x: 0, y: 25 },
@@ -69,7 +69,7 @@ function CarouselSection() {
       src: "/car-list/byd-m6.webp",
       alt: "BYD M6",
       title: "BYD M6",
-      description: "Mobil listrik BMW M paling bertenaga",
+      description: "Mobil listrik BYD M paling bertenaga",
       showText: true,
       position: {
         title: { x: 0, y: 25 },
@@ -82,7 +82,7 @@ function CarouselSection() {
       src: "/car-list/byd-seal.webp",
       alt: "BYD SEAL",
       title: "BYD SEAL",
-      description: "Mobil listrik BMW M paling bertenaga",
+      description: "Mobil listrik BYD M paling bertenaga",
       showText: true,
       position: {
         title: { x: 0, y: 25 },
@@ -155,7 +155,8 @@ function CarouselSection() {
               Jelajahi Model Kami
             </h2>
             <p className="mt-4 text-gray-500 font-light text-sm md:text-base max-w-xl mx-auto px-4">
-              Rasakan perpaduan sempurna antara performa, kemewahan, dan inovasi listrik.
+              Rasakan perpaduan sempurna antara performa, kemewahan, dan inovasi
+              listrik.
             </p>
           </>
         )}

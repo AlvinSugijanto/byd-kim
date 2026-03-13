@@ -96,7 +96,7 @@ export default function Header2() {
     >
       <div
         className={cn(
-          "container flex items-center justify-between px-6 transition-all duration-300 ",
+          "flex items-center justify-between px-6 transition-all duration-300 ",
           isScrolled ? "py-4" : "py-5",
         )}
       >
@@ -114,7 +114,7 @@ export default function Header2() {
         <Logo width={50} height={50} />
 
         {/* Desktop Nav */}
-        <nav className="hidden md:flex items-center">
+        <nav className="hidden lg:flex items-center">
           {navLinks.map((link) => {
             const isActive = isLinkActive(link);
 
@@ -148,16 +148,16 @@ export default function Header2() {
         <Link
           key={"simulate-installment"}
           href={"/simulasi-cicilan"}
-          className="hidden md:flex px-5 py-2 rounded-lg font-semibold items-center gap-2 text-xs transition-all duration-300 bg-white text-black hover:bg-gray-200 shadow-md border border-transparent"
+          className="hidden lg:flex px-5 py-2 rounded-lg font-semibold items-center gap-2 text-xs transition-all duration-300 bg-white text-black hover:bg-gray-200 shadow-md border border-transparent"
         >
-          Simulate Installment
+          Simulasi Cicilan
           <FaArrowRight className="transform -rotate-45" />
         </Link>
 
         {/* Mobile Toggle */}
         <button
           className={cn(
-            "md:hidden text-xl transition-colors",
+            "lg:hidden text-xl transition-colors",
             showBackground
               ? "text-white hover:text-gray-300"
               : "text-white hover:text-gray-300",
@@ -172,7 +172,7 @@ export default function Header2() {
       {mobileMenuOpen && (
         <div
           className={cn(
-            "md:hidden absolute top-full left-0 right-0 border-t p-4 flex flex-col gap-4 shadow-xl bg-[#252728] border-[#3a3d3f]",
+            "lg:hidden absolute top-full left-0 right-0 border-t p-4 flex flex-col gap-4 shadow-xl bg-[#252728] border-[#3a3d3f]",
           )}
         >
           {navLinks.map((link) => {
@@ -201,7 +201,7 @@ export default function Header2() {
             className="px-6 py-3 rounded-lg font-semibold text-center transition-all duration-300 flex items-center justify-center gap-2 bg-white text-black hover:bg-gray-100 border border-transparent border-gray-200"
             onClick={() => setMobileMenuOpen(false)}
           >
-            Simulate Installment
+            Simulasi Cicilan
             <FaArrowRight className="text-sm transform -rotate-45" />
           </Link>
         </div>

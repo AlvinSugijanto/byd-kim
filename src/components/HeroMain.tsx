@@ -74,7 +74,7 @@ export default function HeroMain() {
         <div className="absolute inset-0">
           <Image
             src="/hero2.jpg"
-            alt="BMW Hero"
+            alt="BYD Hero"
             fill
             className="object-cover sm:object-top scale-[100%]"
             priority

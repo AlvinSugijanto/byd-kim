@@ -4,39 +4,18 @@ import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
+import { Zap, Tag } from "lucide-react";
 import { carList } from "@/lib/carList";
 
 const ModelView = () => {
   const [hoveredCard, setHoveredCard] = useState<number | null>(null);
 
-  // Filter states
-  const [selectedSeries, setSelectedSeries] = useState<string>("all");
-  const [selectedType, setSelectedType] = useState<string>("all");
-  const [selectedTag, setSelectedTag] = useState<string>("all");
-
-  // Apply filters to car list
-  const filteredCarList = carList.filter((car) => {
-    const seriesMatch =
-      selectedSeries === "all" ||
-      (selectedSeries === "atto" && car.series.includes("atto")) ||
-      (selectedSeries === "dolphin" && car.series === "dolphin") ||
-      (selectedSeries === "seal" && car.series.includes("seal")) ||
-      (selectedSeries === "m6" && car.series === "m6");
-
-    const typeMatch = selectedType === "all" || car.type === selectedType;
-    const tagMatch = selectedTag === "all" || car.tag === selectedTag;
-
-    return seriesMatch && typeMatch && tagMatch;
-  });
-
-  console.log(filteredCarList);
-
-  // Group filtered cars by series category
+  // Group cars by series category
   const groupedCars = {
-    "ATTO Series": filteredCarList.filter((car) => car.series.includes("atto")),
-    "DOLPHIN Series": filteredCarList.filter((car) => car.series === "dolphin"),
-    "SEAL Series": filteredCarList.filter((car) => car.series.includes("seal")),
-    "M6 Series": filteredCarList.filter((car) => car.series === "m6"),
+    "ATTO Series": carList.filter((car) => car.series.includes("atto")),
+    "DOLPHIN Series": carList.filter((car) => car.series === "dolphin"),
+    "SEAL Series": carList.filter((car) => car.series.includes("seal")),
+    "M6 Series": carList.filter((car) => car.series === "m6"),
   };
 
   return (
@@ -127,42 +106,26 @@ const ModelView = () => {
                           {/* <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-white pointer-events-none" /> */}
 
                           {/* Tags/Badges - Top left corner */}
-                          {(car.type || car.tag) && (
+                          {/* {(car.type || car.tag) && (
                             <div className="absolute top-4 left-4 z-10 flex gap-2">
                               {car.type && (
                                 <span className="inline-flex items-center gap-1.5 bg-gradient-to-r from-emerald-500 to-green-500 text-white px-3 py-1.5 rounded-md text-xs font-bold uppercase tracking-wider shadow-xl border border-white/20">
-                                  <svg
-                                    className="w-3 h-3"
-                                    fill="currentColor"
-                                    viewBox="0 0 20 20"
-                                  >
-                                    <path d="M11 3a1 1 0 10-2 0v1a1 1 0 102 0V3zM15.657 5.757a1 1 0 00-1.414-1.414l-.707.707a1 1 0 001.414 1.414l.707-.707zM18 10a1 1 0 01-1 1h-1a1 1 0 110-2h1a1 1 0 011 1zM5.05 6.464A1 1 0 106.464 5.05l-.707-.707a1 1 0 00-1.414 1.414l.707.707zM5 10a1 1 0 01-1 1H3a1 1 0 110-2h1a1 1 0 011 1zM8 16v-1h4v1a2 2 0 11-4 0zM12 14c.015-.34.208-.646.477-.859a4 4 0 10-4.954 0c.27.213.462.519.476.859h4.002z" />
-                                  </svg>
+                                  <Zap className="w-3 h-3 fill-current" />
                                   {car.type}
                                 </span>
                               )}
                               {car.tag && (
                                 <span className="inline-flex items-center gap-1.5 bg-gradient-to-r from-blue-600 to-blue-700 text-white px-3 py-1.5 rounded-md text-xs font-bold uppercase tracking-wider shadow-xl border border-white/20">
-                                  <svg
-                                    className="w-3 h-3"
-                                    fill="currentColor"
-                                    viewBox="0 0 20 20"
-                                  >
-                                    <path
-                                      fillRule="evenodd"
-                                      d="M17.707 9.293a1 1 0 010 1.414l-7 7a1 1 0 01-1.414 0l-7-7A.997.997 0 012 10V5a3 3 0 013-3h5c.256 0 .512.098.707.293l7 7zM5 6a1 1 0 100-2 1 1 0 000 2z"
-                                      clipRule="evenodd"
-                                    />
-                                  </svg>
+                                  <Tag className="w-3 h-3 fill-current" />
                                   {car.tag}
                                 </span>
                               )}
                             </div>
-                          )}
+                          )} */}
 
                           {/* Car Name - Always visible at bottom */}
                           <div className="absolute bottom-0 left-0 right-0 p-6 z-10">
-                            <h3 className="text-xl font-normal text-gray-600 drop-shadow-lg font-mono">
+                            <h3 className="text-3xl font-normal text-gray-600 drop-shadow-lg font-mono">
                               {car.name}
                             </h3>
                           </div>

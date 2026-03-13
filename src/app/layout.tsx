@@ -7,8 +7,8 @@ import Header2 from "@/components/ui/Header2";
 const montserrat = Montserrat({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "BYD Indonesia",
-  description: "BYD Indonesia",
+  title: "BYD INDONESIA",
+  description: "BYD INDONESIA",
 };
 
 export default function RootLayout({

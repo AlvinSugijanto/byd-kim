@@ -8,72 +8,29 @@ import {
   FaPaperPlane,
 } from "react-icons/fa";
 import { useState } from "react";
+import contactInfo from "@/lib/contactInfo";
 
 export default function ContactUs() {
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    phone: "",
-    message: "",
-  });
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-
-    // Build WhatsApp message
-    const phoneNumber = "6285117576041"; // Ganti dengan nomor WA yang sesuai
-    let message = "Halo, saya ingin menghubungi BMW Tunas Hayam Wuruk.%0A%0A";
-
-    if (formData.name) {
-      message += `Nama: ${formData.name}%0A`;
-    }
-    if (formData.email) {
-      message += `Email: ${formData.email}%0A`;
-    }
-    if (formData.phone) {
-      message += `No. HP: ${formData.phone}%0A`;
-    }
-    if (formData.message) {
-      message += `%0APesan:%0A${formData.message}%0A`;
-    }
-
-    message += "%0ATerima kasih!";
-
-    const whatsappUrl = `https://wa.me/${phoneNumber}?text=${message}`;
-    window.open(whatsappUrl, "_blank");
-  };
-
-  const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
-  ) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value,
-    });
-  };
-
   const items = [
     {
-      link: `https://wa.me/6285117576041?text=${encodeURIComponent("Halo, saya ingin menghubungi BYD.")}`,
+      link: `https://wa.me/${contactInfo.phone}?text=${encodeURIComponent("Halo, saya ingin menghubungi BYD.")}`,
       icon: <FaPhone />,
       title: "Phone",
-      content: ["+6285117576041", "Senin - Minggu: 08:30 - 19:00"],
+      content: [contactInfo.phone, "Senin - Minggu: 08:30 - 19:00"],
       overlay: "Kirim Pesan Whatsapp",
     },
     {
-      link: `mailto:steven.putra@bmw-tunas.co.id`,
+      link: `mailto:${contactInfo.email}`,
       icon: <FaEnvelope />,
       title: "Email",
-      content: ["steven.putra@bmw-tunas.co.id", "stevenbmwtunas@gmail.com"],
+      content: [contactInfo.email],
       overlay: "Kirim Email",
     },
     {
       link: `https://maps.app.goo.gl/3957v11111111111`,
       icon: <FaMapMarkerAlt />,
       title: "Lokasi",
-      content: [
-        "Jl. Prof. Dr. Soepomo No.17, Menteng Dalam, Kec. Tebet, Jakarta Selatan, DKI Jakarta 12870",
-      ],
+      content: [contactInfo.full_address],
       overlay: "Kunjungi Showroom Kami",
     },
   ];
@@ -81,23 +38,6 @@ export default function ContactUs() {
   return (
     <section id="contact-us" className="py-20 bg-slate-50">
       <div className="container mx-auto px-6">
-        {/* Section Header */}
-        {/* <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-            className="text-center mb-16"
-          >
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-              Get in Touch
-            </h2>
-            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-              Have questions about our BMW vehicles? We're here to help. Contact
-              us today.
-            </p>
-          </motion.div> */}
-
         <div className="grid lg:grid-cols-1 gap-12">
           {/* Contact Information */}
           <motion.div
@@ -246,78 +186,4 @@ export default function ContactUs() {
       </div>
     </section>
   );
-}
-
-{
-  /* <a
-                href={`https://wa.me/6285117576041?text=${encodeURIComponent("Halo, saya ingin menghubungi BYD.")}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group relative flex items-start gap-4 p-6 bg-white rounded-xl border border-gray-200 overflow-hidden cursor-pointer shadow-sm hover:shadow-md transition-all"
-              >
-                <div className="bg-gray-100 p-3 rounded-lg relative z-10 transition-colors group-hover:bg-gray-200">
-                  <FaPhone className="text-gray-800 text-xl" />
-                </div>
-                <div className="relative z-10">
-                  <h4 className="font-semibold text-gray-900 mb-1 group-hover:text-gray-800 transition-colors">
-                    Phone
-                  </h4>
-                  <p className="text-gray-600">+6285117576041</p>
-                  <p className="text-gray-600">Mon - Sun: 8:30 AM - 7:00 PM</p>
-                </div>
-                <div className="absolute inset-0 bg-gray-900 -translate-x-full group-hover:translate-x-0 transition-transform duration-[700ms] ease-in-out flex items-center justify-center z-20">
-                  <p className="text-white font-semibold text-lg flex items-center gap-2">
-                    <FaPhone /> Send Whatsapp Message
-                  </p>
-                </div>
-              </a>
-
-              <a
-                href="mailto:steven.putra@bmw-tunas.co.id"
-                className="group relative flex items-start gap-4 p-6 bg-white rounded-xl border border-gray-200 overflow-hidden cursor-pointer shadow-sm hover:shadow-md transition-all"
-              >
-                <div className="bg-gray-100 p-3 rounded-lg relative z-10 transition-colors group-hover:bg-gray-200">
-                  <FaEnvelope className="text-gray-800 text-xl" />
-                </div>
-                <div className="relative z-10">
-                  <h4 className="font-semibold text-gray-900 mb-1 group-hover:text-gray-800 transition-colors">
-                    Email
-                  </h4>
-                  <p className="text-gray-600">steven.putra@bmw-tunas.co.id</p>
-                  <p className="text-gray-600">stevenbmwtunas@gmail.com</p>
-                </div>
-                <div className="absolute inset-0 bg-gray-900 -translate-x-full group-hover:translate-x-0 transition-transform duration-[700ms] ease-in-out flex items-center justify-center z-20">
-                  <p className="text-white font-semibold text-lg flex items-center gap-2">
-                    <FaEnvelope /> Send an Email
-                  </p>
-                </div>
-              </a>
-
-              <a
-                href="https://maps.app.goo.gl/YourGoogleMapsLinkHere"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group relative flex items-start gap-4 p-6 bg-white rounded-xl border border-gray-200 overflow-hidden cursor-pointer shadow-sm hover:shadow-md transition-all"
-              >
-                <div className="bg-gray-100 p-3 rounded-lg relative z-10 transition-colors group-hover:bg-gray-200">
-                  <FaMapMarkerAlt className="text-gray-800 text-xl" />
-                </div>
-                <div className="relative z-10">
-                  <h4 className="font-semibold text-gray-900 mb-1 group-hover:text-gray-800 transition-colors">
-                    Location
-                  </h4>
-                  <p className="text-gray-600">
-                    Jalan Hayam Wuruk No. 51, Maphar, Taman Sari
-                    <br />
-                    Jakarta Barat
-                    <br />
-                    DKI Jakarta
-                  </p>
-                </div>
-                <div className="absolute inset-0 bg-gray-900 -translate-x-full group-hover:translate-x-0 transition-transform duration-[700ms] ease-in-out flex items-center justify-center z-20">
-                  <p className="text-white font-semibold text-lg flex items-center gap-2">
-                    <FaMapMarkerAlt /> View on Google Maps
-                  </p>
-                </div>
-              </a> */
 }

@@ -3,7 +3,7 @@ import { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Model - BYD",
-  description: "BYD Indonesia",
+  description: "BYD INDONESIA",
 };
 
 export default function ModelPage() {

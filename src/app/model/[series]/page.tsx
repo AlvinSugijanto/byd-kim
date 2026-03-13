@@ -40,16 +40,16 @@ export async function generateMetadata({
     "electric car",
     "premium electric vehicle",
     "test drive",
-    "BYD Indonesia",
+    "BYD INDONESIA",
     "BYD Dealer",
   ].filter(Boolean);
 
   return {
-    title: `${car.name} - BYD Indonesia`,
+    title: `${car.name} - BYD INDONESIA`,
     description: seoDescription,
     keywords: keywords.join(", "),
     openGraph: {
-      title: `${car.name} - ${car.title || "BYD Indonesia"}`,
+      title: `${car.name} - ${car.title || "BYD INDONESIA"}`,
       description: seoDescription,
       images: [
         {
@@ -60,11 +60,11 @@ export async function generateMetadata({
         },
       ],
       type: "website",
-      siteName: "BYD Indonesia",
+      siteName: "BYD INDONESIA",
     },
     twitter: {
       card: "summary_large_image",
-      title: `${car.name} - BYD Indonesia`,
+      title: `${car.name} - BYD INDONESIA`,
       description: seoDescription,
       images: [car.path],
     },

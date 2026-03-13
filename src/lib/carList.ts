@@ -5,16 +5,36 @@ export const carList = [
     path: "/byd-png/byd-seal.png",
     type: "electric",
     tag: "sedan",
-    title: "Performance Meets Elegance",
+    title: "Dinamis & Cerdas | Sedan Premium Full Elektrik",
     description:
-      "The BYD SEAL is a stunning electric sedan that delivers exhilarating performance and sophisticated design. Built on BYD's e-Platform 3.0 with advanced Blade Battery technology, the SEAL offers an impressive blend of power, range, and luxury.",
-    content: {
-      "Torsi Maksimum": "360 N.m",
-      "Daya Maksimum": "230 kW",
-      "Jarak Mengemudi NEDC": "650 km",
-      "Kapasitas Baterai": "82.56 kWh",
-      "0-100 km/h": "5.9s",
-    },
+      "BYD SEAL adalah mahakarya sejati dari desain yang terinspirasi oleh lautan. Menampilkan ujung depan berbentuk X yang memancarkan kesan sporty dan gaya, mobil ini mengintegrasikan Teknologi CTB (cell-to-body) yang dikembangkan sendiri oleh BYD secara mulus untuk meningkatkan keselamatan dan performa.",
+
+    variants: [
+      {
+        name: "Premium",
+        tag: "Extended Range",
+        price: "655.000.000",
+        content: {
+          "Torsi Maksimum": "360 N.m",
+          "Daya Maksimum": "230 kW",
+          "Jarak Mengemudi NEDC": "650 km",
+          "Kapasitas Baterai": "82.56 kWh",
+          "0-100 km/h": "5.9s",
+        },
+      },
+      {
+        name: "Performance",
+        tag: "AWD",
+        price: "766.000.000",
+        content: {
+          "Torsi Maksimum": "670 N.m",
+          "Daya Maksimum": "390 kW",
+          "Jarak Mengemudi NEDC": "580 km",
+          "Kapasitas Baterai": "82.56 kWh",
+          "0-100 km/h": "3.8s",
+        },
+      },
+    ],
   },
   {
     name: "BYD ATTO 3",
@@ -22,50 +42,110 @@ export const carList = [
     path: "/byd-png/byd-atto-3.png",
     type: "electric",
     tag: "suv",
-    title: "Smart. Stylish. Sustainable.",
+    title: "C-SUV yang Ekspresif dan Dinamis",
     description:
-      "The BYD ATTO 3 is a compact electric SUV that combines cutting-edge technology with exceptional range and performance. With its spacious interior, advanced safety features, and innovative Blade Battery technology, the ATTO 3 delivers a premium electric driving experience for the modern family.",
-    content: {
-      "Torsi Maksimum": "310 N.m",
-      "Daya Maksimum": "150 kW",
-      "Jarak Mengemudi NEDC": "410 km",
-      "Kapasitas Baterai": "49.92 kWh",
-      "0-100 km/h": "7.9s",
-    },
+      "BYD ATTO 3 melambangkan Kecepatan, Energi, dan Dinamika. Dilengkapi dengan e-Platform 3.0 yang revolusioner, mobil ini memadukan kecerdasan, efisiensi, dan keselamatan dengan sempurna untuk memberikan pengalaman berkendara yang tenang, nyaman, dan menyenangkan.",
+
+    variants: [
+      {
+        name: "Advanced",
+        tag: "Standard Range",
+        price: "639.000.000",
+        content: {
+          "Torsi Maksimum": "310 N.m",
+          "Daya Maksimum": "150 kW",
+          "Jarak Mengemudi NEDC": "410 km",
+          "Kapasitas Baterai": "49.92 kWh",
+          "0-100 km/h": "7.9s",
+        },
+      },
+      {
+        name: "Superior",
+        tag: "Extended Range",
+        price: "535.000.000",
+        content: {
+          "Torsi Maksimum": "310 N.m",
+          "Daya Maksimum": "150 kW",
+          "Jarak Mengemudi NEDC": "410 km",
+          "Kapasitas Baterai": "49.92 kWh",
+          "0-100 km/h": "7.9s",
+        },
+      },
+    ],
   },
   {
     name: "BYD ATTO 1",
-    series: "atto",
+    series: "atto-1",
     path: "/byd-png/byd-atto.png",
     type: "electric",
     tag: "suv",
-    title: "Compact Electric Innovation",
+    title: "Inovasi Mobil Listrik Kompak",
     description:
-      "The BYD ATTO represents the future of urban mobility. This compact electric SUV offers impressive efficiency, smart connectivity features, and BYD's renowned battery technology, making it the perfect companion for city driving and beyond.",
-    content: {
-      "Torsi Maksimum": "135 N.m",
-      "Daya Maksimum": "55 kW",
-      "Jarak Mengemudi NEDC": "300 km",
-      "Kapasitas Baterai": "30.08 kWh",
-      "0-100 km/h": "4.9s",
-    },
+      "Dirancang untuk gaya hidup urban modern, kendaraan listrik kompak ini menawarkan efisiensi dan gaya. Dibangun di atas platform EV canggih BYD, mobil ini menghadirkan pengalaman berkendara yang mulus, cerdas, dan ramah lingkungan untuk berkendara di kota dan sekitarnya.",
+
+    variants: [
+      {
+        name: "Dynamic",
+        tag: "Standard Range",
+        price: "205.000.000",
+        content: {
+          "Torsi Maksimum": "135 N.m",
+          "Daya Maksimum": "55 kW",
+          "Jarak Mengemudi NEDC": "300 km",
+          "Kapasitas Baterai": "30.08 kWh",
+          "0-100 km/h": "4.9s",
+        },
+      },
+      {
+        name: "Premium",
+        tag: "Long Range",
+        price: "241.000.000",
+        content: {
+          "Torsi Maksimum": "135 N.m",
+          "Daya Maksimum": "55 kW",
+          "Jarak Mengemudi NEDC": "380 km",
+          "Kapasitas Baterai": "38.88 kWh",
+          "0-100 km/h": "4.9s",
+        },
+      },
+    ],
   },
   {
-    name: "BYD DOLPHIN",
-    series: "dolphin",
+    name: "BYD DOLPHINE",
+    series: "dolphine",
     path: "/byd-png/byd-dolphin.png",
     type: "electric",
     tag: "hatchback",
-    title: "Ocean Aesthetics. Pure Electric Joy.",
+    title: "Hatchback yang Lincah dan Serbaguna",
     description:
-      "Inspired by the ocean, the BYD DOLPHIN brings a fresh, youthful energy to electric mobility. With its distinctive design, agile handling, and impressive range, the DOLPHIN makes electric driving accessible and fun for everyone.",
-    content: {
-      "Torsi Maksimum": "180 N.m",
-      "Daya Maksimum": "70 kW",
-      "Jarak Mengemudi NEDC": "410 km",
-      "Kapasitas Baterai": "44.9 kWh",
-      "0-100 km/h": "12.3s",
-    },
+      "Mengadopsi konsep desain 'Estetika Laut', BYD Dolphin mendefinisikan ulang mobilitas perkotaan dengan desainnya yang ramping, teknologi canggih, dan efisiensi yang mengesankan. Ini adalah hatchback dengan desain dinamis yang lapang, futuristik, dan sempurna untuk kehidupan kota.",
+
+    variants: [
+      {
+        name: "Dynamic",
+        tag: "Standard Range",
+        price: "375.000.000",
+        content: {
+          "Torsi Maksimum": "180 N.m",
+          "Daya Maksimum": "70 kW",
+          "Jarak Mengemudi NEDC": "410 km",
+          "Kapasitas Baterai": "44.9 kWh",
+          "0-100 km/h": "12.3s",
+        },
+      },
+      {
+        name: "Premium",
+        tag: "Extended Range",
+        price: "439.000.000",
+        content: {
+          "Torsi Maksimum": "310 N.m",
+          "Daya Maksimum": "150 kW",
+          "Jarak Mengemudi NEDC": "490 km",
+          "Kapasitas Baterai": "60.48 kWh",
+          "0-100 km/h": "7.0s",
+        },
+      },
+    ],
   },
   {
     name: "BYD M6",
@@ -73,16 +153,48 @@ export const carList = [
     path: "/byd-png/byd-m6.png",
     type: "electric",
     tag: "mpv",
-    title: "Spacious Luxury for the Whole Family",
+    title: "MPV Listrik Pilihan Keluarga",
     description:
-      "The BYD M6 is a premium electric MPV designed for families who demand space, comfort, and versatility. With its luxurious interior, advanced safety systems, and efficient electric powertrain, the M6 redefines family transportation.",
-    content: {
-      "Torsi Maksimum": "310 N.m",
-      "Daya Maksimum": "120 kW",
-      "Jarak Mengemudi NEDC": "420 km",
-      "Kapasitas Baterai": "55.4 kWh",
-      "0-100 km/h": "10.1s",
-    },
+      "Petualangan listrik keluarga Anda dimulai di sini. BYD M6 adalah mobil 7-penumpang lapang yang dirancang untuk kenyamanan dan keselamatan maksimal, memadukan efisiensi dengan keanggunan tertinggi dengan sempurna untuk perjalanan keluarga yang tanpa beban.",
+
+    variants: [
+      {
+        name: "Standard",
+        tag: "7 Seater",
+        price: "393.000.000",
+        content: {
+          "Torsi Maksimum": "310 N.m",
+          "Daya Maksimum": "120 kW",
+          "Jarak Mengemudi NEDC": "420 km",
+          "Kapasitas Baterai": "55.4 kWh",
+          "0-100 km/h": "10.1s",
+        },
+      },
+      {
+        name: "Superior",
+        tag: "7 Seater",
+        price: "433.000.000",
+        content: {
+          "Torsi Maksimum": "310 N.m",
+          "Daya Maksimum": "150 kW",
+          "Jarak Mengemudi NEDC": "530 km",
+          "Kapasitas Baterai": "71.8 kWh",
+          "0-100 km/h": "8.6s",
+        },
+      },
+      {
+        name: "Superior Captain",
+        tag: "6 Seater",
+        price: "443.000.000",
+        content: {
+          "Torsi Maksimum": "310 N.m",
+          "Daya Maksimum": "150 kW",
+          "Jarak Mengemudi NEDC": "530 km",
+          "Kapasitas Baterai": "71.8 kWh",
+          "0-100 km/h": "8.6s",
+        },
+      },
+    ],
   },
 
   {
@@ -91,15 +203,35 @@ export const carList = [
     path: "/byd-png/byd-sealion-7.png",
     type: "electric",
     tag: "suv",
-    title: "The Future of Electric SUVs",
+    title: "SUV Listrik Cerdas Berperforma Tinggi",
     description:
-      "The BYD SEALION 7 represents the pinnacle of BYD's electric SUV lineup. With its commanding presence, cutting-edge technology, and exceptional range, the SEALION 7 is designed for those who refuse to compromise on performance, comfort, or sustainability.",
-    content: {
-      "Torsi Maksimum": "380 N.m",
-      "Daya Maksimum": "230 kW",
-      "Jarak Mengemudi NEDC": "567 km",
-      "Kapasitas Baterai": "82.56 kWh",
-      "0-100 km/h": "6.7s",
-    },
+      "Lebih dari sekadar SUV, BYD Sealion 7 adalah pernyataan gaya hidup yang dibuat bagi mereka yang menjalani hidup dengan semangat penuh. Mobil ini secara mulus memadukan estetika yang terinspirasi oleh lautan dengan inovasi performa tinggi mutakhir untuk mendefinisikan ulang arti premium.",
+
+    variants: [
+      {
+        name: "Premium",
+        tag: "5 Seater",
+        price: "641.000.000",
+        content: {
+          "Torsi Maksimum": "380 N.m",
+          "Daya Maksimum": "230 kW",
+          "Jarak Mengemudi NEDC": "567 km",
+          "Kapasitas Baterai": "82.56 kWh",
+          "0-100 km/h": "6.7s",
+        },
+      },
+      {
+        name: "Performance",
+        tag: "5 Seater",
+        price: "731.000.000",
+        content: {
+          "Torsi Maksimum": "690 N.m",
+          "Daya Maksimum": "390 kW",
+          "Jarak Mengemudi NEDC": "542 km",
+          "Kapasitas Baterai": "82.56 kWh",
+          "0-100 km/h": "4.5s",
+        },
+      },
+    ],
   },
 ];

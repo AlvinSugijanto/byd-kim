@@ -8,8 +8,12 @@ import {
 } from "react-icons/fa";
 import Logo from "./Logo";
 import Link from "next/link";
+import { LocationEdit, Mail, Phone } from "lucide-react";
+import contactInfo from "@/lib/contactInfo";
 
 export default function Footer() {
+  const modelList = ["ATTO SERIES", "DOLPHIN SERIS", "SEAL SERIES", "M6"];
+
   return (
     <section className="text-white sm:pt-16 md:pt-20 pt-8 pb-10 bg-gray-900">
       <div className="container mx-auto px-4">
@@ -20,9 +24,9 @@ export default function Footer() {
               <Logo width={50} height={50} />
             </div>
             <p className="text-gray-300 mb-6 leading-relaxed">
-              Rasakan pengalaman berkendara yang luar biasa bersama BMW Indonesia.
-              Temukan rangkaian kendaraan mewah kami yang dirancang untuk performa
-              dan keanggunan.
+              Rasakan pengalaman berkendara yang luar biasa bersama BYD
+              Indonesia. Temukan rangkaian kendaraan mewah kami yang dirancang
+              untuk performa dan keanggunan.
             </p>
             <div className="flex gap-4">
               {[
@@ -57,19 +61,13 @@ export default function Footer() {
           <div>
             <h4 className="font-bold text-lg mb-6">Model Kami</h4>
             <ul className="space-y-3 text-gray-300">
-              {[
-                { name: "Kendaraan Listrik", href: "/model?type=electric" },
-                { name: "Seri SUV", href: "/model?tag=suv" },
-                { name: "Seri Sedan", href: "/model?tag=sedan" },
-                { name: "M Performance", href: "/model" },
-                { name: "Lihat Semua Model", href: "/model" },
-              ].map((link) => (
-                <li key={link.name}>
+              {modelList.map((model) => (
+                <li key={model}>
                   <Link
-                    href={link.href}
+                    href={`/model?type=${model}`}
                     className="hover:text-blue-400 transition-colors inline-block hover:translate-x-1 duration-200"
                   >
-                    {link.name}
+                    {model}
                   </Link>
                 </li>
               ))}
@@ -81,7 +79,7 @@ export default function Footer() {
             <h4 className="font-bold text-lg mb-6">Tautan Cepat</h4>
             <ul className="space-y-3 text-gray-300">
               {[
-                { name: "Tentang BMW", href: "/#about" },
+                { name: "Tentang BYD", href: "/#about" },
                 { name: "Test Drive", href: "/#contact-us" },
                 { name: "Hubungi Kami", href: "/#contact-us" },
                 { name: "Cari Dealer", href: "/#contact-us" },
@@ -104,67 +102,25 @@ export default function Footer() {
             <h4 className="font-bold text-lg mb-6">Info Kontak</h4>
             <ul className="space-y-4 text-gray-300">
               <li className="flex items-start gap-3">
-                <svg
-                  className="w-5 h-5 mt-1 flex-shrink-0 text-blue-400"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
-                  />
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
-                  />
-                </svg>
-                <span className="leading-relaxed">Jakarta, Indonesia</span>
+                <LocationEdit className="w-5 h-5 mt-1 flex-shrink-0 text-blue-400" />
+                <span className="leading-relaxed">{contactInfo.address}</span>
               </li>
               <li className="flex items-start gap-3">
-                <svg
-                  className="w-5 h-5 mt-1 flex-shrink-0 text-blue-400"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
-                  />
-                </svg>
+                <Mail className="w-5 h-5 mt-1 flex-shrink-0 text-blue-400" />
                 <a
-                  href="mailto:steven.putra@bmw-tunas.co.id"
-                  className="hover:text-blue-400 transition-colors"
+                  href={`mailto:${contactInfo.email}`}
+                  className="hover:text-blue-400 transition-colors break-all"
                 >
-                  steven.putra@bmw-tunas.co.id
+                  {contactInfo.email}
                 </a>
               </li>
               <li className="flex items-start gap-3">
-                <svg
-                  className="w-5 h-5 mt-1 flex-shrink-0 text-blue-400"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
-                  />
-                </svg>
+                <Phone className="w-5 h-5 mt-1 flex-shrink-0 text-blue-400" />
                 <a
-                  href="tel:+6285117576041"
+                  href={`tel:${contactInfo.phone}`}
                   className="hover:text-blue-400 transition-colors"
                 >
-                  +62 85 1175 76041
+                  {contactInfo.phone}
                 </a>
               </li>
             </ul>
@@ -172,18 +128,7 @@ export default function Footer() {
         </div>
 
         <div className="border-t border-white/20 pt-8 flex flex-col md:flex-row justify-between items-center text-gray-400 text-sm">
-          <p>© 2026 BMW Indonesia. Hak Cipta Dilindungi.</p>
-          <div className="flex gap-6 mt-4 md:mt-0">
-            <a href="#" className="hover:text-white transition-colors">
-              Kebijakan Privasi
-            </a>
-            <a href="#" className="hover:text-white transition-colors">
-              Syarat dan Ketentuan
-            </a>
-            <a href="#" className="hover:text-white transition-colors">
-              Kebijakan Cookie
-            </a>
-          </div>
+          <p>© 2026 BYD Indonesia. Hak Cipta Dilindungi.</p>
         </div>
       </div>
     </section>

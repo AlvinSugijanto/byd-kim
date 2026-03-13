@@ -110,10 +110,6 @@ export default function Header() {
             height={50}
             className="w-auto h-full"
           />
-          {/* <p className="text-2xl font-serif flex justify-center gap-2.5">
-            BMW
-            <span className="">Tunas</span>
-          </p> */}
         </Link>
 
         {/* Desktop Nav */}

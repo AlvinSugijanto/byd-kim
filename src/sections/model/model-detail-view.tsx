@@ -1,22 +1,29 @@
 "use client";
 
+import { useState } from "react";
+
 import { ModelDetailProps } from "@/types/model";
 import { motion } from "framer-motion";
+import { CardSim, Download, File, Flashlight } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
+import { GrDocument, GrDocumentLocked } from "react-icons/gr";
 
 export default function ModelDetailView({
   car,
   previousCar,
   nextCar,
 }: ModelDetailProps) {
+  const [selectedVariant, setSelectedVariant] = useState(
+    car.variants && car.variants.length > 0 ? car.variants[0] : null,
+  );
   // Download spec card function
   const handleDownloadSpecCard = () => {
     if (!car.specCard) return;
 
     const link = document.createElement("a");
     link.href = car.specCard;
-    link.download = car.specCard.split("/").pop() || "spec-card.pdf";
+    link.download = car.specCard.split("/").pop() || "";
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
@@ -26,41 +33,42 @@ export default function ModelDetailView({
     <>
       <main className="min-h-screen pt-[50px] md:pt-[65px] bg-gradient-to-br from-gray-50 via-white to-gray-100">
         {/* Hero Section with Car Image */}
-        <section className="relative h-[50vh] xs:h-[80vh] overflow-hidden">
+        <section className="relative h-[50vh] xs:h-[100vh] overflow-hidden">
           {/* Background Image */}
           <div className="absolute inset-0">
             <Image
-              src={car.path}
+              src={"/byd-atto-1.webp"}
               alt={car.name}
               fill
-              className="object-contain scale-75"
+              className="object-cover scale-100 object-center"
               priority
             />
-            <div className="absolute inset-0 bg-gradient-to-b from-gray-800/10 via-gray-800/10 to-transparent" />
-            {/* <div className="absolute inset-10 bg-gradient-to-l from-gray-800/10 via-gray-800/0 to-transparent" /> */}
+            <div className="absolute inset-0 bg-gradient-to-t from-gray-800/50 via-gray-800/10 to-transparent" />
           </div>
 
           {/* Hero Content */}
-          <div className="relative z-10 h-full flex justify-center px-6 sm:px-12 md:px-16">
+          <div className="relative z-10 h-full px-6 sm:px-12 md:px-16">
             {/* Car Name Display - Positioned closer to car */}
             <motion.div
               initial={{ opacity: 0, x: -30 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
-              className="absolute top-8 left-36"
+              // className="absolute top-12 left-0 right-0 flex flex-col items-center"
+
+              className="absolute top-8 left-4 sm:left-24 lg:left-36"
             >
               {/* "THE" prefix */}
-              <p className="text-base sm:text-xl ml-1.5 tracking-[0.4em] text-gray-800 font-normal uppercase mb-2">
-                THE
-              </p>
+              {/* <p className="text-base sm:text-3xl ml-1.5 text-black font-medium mb-2">
+                BYD
+              </p> */}
 
               {/* Car Name - Clean and Bold */}
-              <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-gray-900 leading-tight tracking-tight mb-2 font-mono">
-                {car.name.replace("BMW ", "")}
+              <h1 className="text-2xl sm:text-5xl md:text-5xl lg:text-5xl xl:text-6xl font-bold text-black leading-tight tracking-tight mb-2 font-mono">
+                BYD {car.name.replace("BYD ", "")}
               </h1>
 
               {/* Subtle underline accent */}
-              <div className="w-20 h-1 bg-blue-600 rounded-full"></div>
+              {/* <div className="w-20 h-1 bg-white rounded-full"></div> */}
             </motion.div>
 
             {/* Action Buttons */}
@@ -73,22 +81,8 @@ export default function ModelDetailView({
               whileHover={{ scale: 1.0 }}
               whileTap={{ scale: 0.95 }}
               onClick={handleDownloadSpecCard}
-              className="bg-blue-600 text-white px-6 py-3 font-semibold hover:bg-blue-700 transition-all duration-300 shadow-lg flex items-center gap-2 w-full justify-center cursor-pointer"
+              className="bg-gray-800 text-white px-6 py-3 font-semibold hover:bg-blue-700 transition-all duration-300 shadow-lg flex items-center gap-2 w-full justify-center cursor-pointer"
             >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="h-5 w-5"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
-                />
-              </svg>
               Download Spec Card
             </motion.button>
           ) : (
@@ -96,20 +90,6 @@ export default function ModelDetailView({
               disabled
               className="bg-gray-400 text-white px-6 py-3 font-semibold transition-all duration-300 shadow-lg flex items-center gap-2 w-full justify-center cursor-not-allowed opacity-60"
             >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="h-5 w-5"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
-                />
-              </svg>
               Spec Card Not Available
             </motion.button>
           )}
@@ -125,24 +105,10 @@ export default function ModelDetailView({
             }}
             className="bg-white text-blue-600 px-6 py-3 font-semibold hover:bg-gray-100 transition-all duration-300 shadow-lg border-2 border-blue-600 flex items-center gap-2 w-full justify-center cursor-pointer"
           >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="h-5 w-5"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M13 10V3L4 14h7v7l9-11h-7z"
-              />
-            </svg>
             Request Test Drive
           </motion.button>
         </section>
-        {/* Title Section */}
+
         {car.title && (
           <section className="px-4 py-16 flex flex-col sm:gap-12 gap-8">
             <div className="max-w-2xl mx-auto ">
@@ -155,7 +121,6 @@ export default function ModelDetailView({
                 <h2 className="text-2xl sm:text-3xl md:text-4xl font-normal text-gray-900 mb-6 text-center">
                   {car.title}
                 </h2>
-                {/* <div className="w-24 h-1 bg-blue-600 rounded-full mx-auto"></div> */}
               </motion.div>
             </div>
             <div className="max-w-3xl mx-auto">
@@ -174,84 +139,95 @@ export default function ModelDetailView({
         )}
 
         {/* Technical Specifications Section */}
-        {car.content && Object.keys(car.content).length > 0 && (
-          <section className="py-16 px-4 bg-white">
-            <div className="mx-auto">
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6 }}
-              >
-                <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-8 text-center">
-                  Technical Specifications
-                </h2>
-                <div className="w-24 h-1 bg-blue-600 rounded-full mx-auto mb-12"></div>
+        <section className="py-16 px-4 bg-white">
+          <div className="mx-auto">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+            >
+              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-8 text-center">
+                Technical Specifications
+              </h2>
+              <div className="w-36 h-1 bg-gray-800 rounded-full mx-auto  mb-24"></div>
 
-                {/* Two Column Layout: Image + Specs */}
-                <div className="flex lg:flex-row flex-col gap-8 lg:gap-12 items-center">
-                  {/* Left Column: Car Image */}
-                  <motion.div
-                    initial={{ opacity: 0, x: -30 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.6 }}
-                    className="relative w-full lg:w-[65%] h-[300px] md:h-[500px] lg:h-[500px] rounded-2xl overflow-hidden "
-                  >
-                    {/* Series Name Watermark - Large transparent text behind car */}
-                    <div className="absolute top-8 sm:left-16 md:left-24 pointer-events-none z-0">
-                      <p className="font-light text-[60px] md:text-[80px] lg:text-[120px] text-gray-300 opacity-40 leading-none uppercase tracking-tight">
-                        {car.series.split("-").join(" ").replace(" ", "  ")}
-                      </p>
-                    </div>
-
-                    {/* Car Image - positioned above the watermark */}
-                    <Image
-                      src={car.path}
-                      alt={car.name}
-                      fill
-                      className="object-cover relative z-10 scale-[60%]"
-                    />
-
-                    {/* Decorative gradient overlay */}
-                    {/* <div className="absolute inset-0 bg-gradient-to-t from-white/20 via-transparent to-transparent pointer-events-none" /> */}
-                  </motion.div>
-
-                  {/* Right Column: Specifications Grid */}
-                  <div className="grid grid-cols-2 gap-y-6 sm:gap-y-4 sm:gap-x-12 gap-x-4">
-                    <div className="col-span-2 mb-8">
-                      <p className="text-gray-500">Price</p>
-                      <p className="text-5xl font-medium">Rp. 629.000.000</p>
-                    </div>
-                    {Object.entries(car.content)
-                      .filter(([_, value]) => value !== undefined)
-                      .map(([key, value], index) => (
-                        <motion.div
-                          key={key}
-                          initial={{ opacity: 0, y: 20 }}
-                          whileInView={{ opacity: 1, y: 0 }}
-                          viewport={{ once: true }}
-                          transition={{ duration: 0.4, delay: index * 0.1 }}
-                          className="transition-all duration-300 hover:scale-105"
-                        >
-                          <div className="flex items-start justify-between">
-                            <div className="flex-1">
-                              <p className="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-2">
-                                {key}
-                              </p>
-                              <p className="text-xl md:text-2xl font-semibold text-gray-900">
-                                {value}
-                              </p>
-                            </div>
-                          </div>
-                        </motion.div>
-                      ))}
+              {/* Two Column Layout: Image + Specs */}
+              <div className="grid grid-cols-1 lg:grid-cols-5 gap-8 lg:gap-12 items-center">
+                {/* Left Column: Car Image */}
+                <motion.div
+                  initial={{ opacity: 0, x: -30 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.6 }}
+                  className="col-span-1 lg:col-span-3 relative"
+                >
+                  <div className="absolute -top-12 sm:left-16 md:left-24 pointer-events-none z-0">
+                    <p className="font-light text-[60px] md:text-[80px] lg:text-[120px] text-gray-300 opacity-40 leading-none uppercase tracking-tight">
+                      {car.series.split("-").join(" ").replace(" ", "  ")}
+                    </p>
                   </div>
+
+                  <Image
+                    src={car.path}
+                    alt={car.name}
+                    width={1000}
+                    height={1000}
+                    className="object-contain w-full h-auto relative z-10 scale-[80%]"
+                  />
+                </motion.div>
+
+                {/* Right Column: Specifications Grid */}
+                <div className="grid grid-cols-2 gap-y-6 gap-x-4 sm:gap-y-4 sm:gap-x-12 col-span-1 lg:col-span-2  px-8 sm:px-16 lg:px-0">
+                  {car.variants && car.variants.length > 0 && (
+                    <div className="col-span-2 flex flex-wrap gap-4 mb-2 lg:mb-4">
+                      {car.variants.map((variant, index) => (
+                        <VariantCard
+                          key={index}
+                          variant={variant}
+                          isSelected={selectedVariant?.name === variant.name}
+                          onClick={() => setSelectedVariant(variant)}
+                        />
+                      ))}
+                    </div>
+                  )}
+                  <div className="col-span-2 flex flex-wrap gap-4 items-center mb-2 lg:mb-4">
+                    {/* <p className="text-lg font-semibold text-gray-500 uppercase tracking-wider">
+                        HARGA
+                      </p> */}
+                    <p className="text-xl md:text-2xl lg:text-4xl font-semibold text-gray-900">
+                      Rp{" "}
+                      {selectedVariant ? selectedVariant.price : "629.000.000"}
+                    </p>
+                  </div>
+                  {Object.entries(selectedVariant?.content || car.content || {})
+                    .filter(([_, value]) => value !== undefined)
+                    .map(([key, value], index) => (
+                      <motion.div
+                        key={key}
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.4, delay: index * 0.1 }}
+                        className="transition-all duration-300 hover:scale-105"
+                      >
+                        <div className="flex items-start justify-between">
+                          <div className="flex-1">
+                            <p className="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-2">
+                              {key}
+                            </p>
+                            <p className="text-lg md:text-xl lg:text-2xl font-semibold text-gray-900">
+                              {value}
+                            </p>
+                          </div>
+                        </div>
+                      </motion.div>
+                    ))}
                 </div>
-              </motion.div>
-            </div>
-          </section>
-        )}
+              </div>
+            </motion.div>
+          </div>
+        </section>
         {/* Navigation Section */}
         <section className="py-16 px-4 bg-gradient-to-br from-gray-50 to-white border-t border-gray-200">
           <div className="max-w-5xl mx-auto">
@@ -346,5 +322,30 @@ export default function ModelDetailView({
         </section>
       </main>
     </>
+  );
+}
+
+function VariantCard({
+  variant,
+  isSelected,
+  onClick,
+}: {
+  variant: any;
+  isSelected: boolean;
+  onClick: () => void;
+}) {
+  return (
+    <div
+      onClick={onClick}
+      className={`bg-white border rounded-lg py-2 px-4 hover:cursor-pointer text-center basis-1 flex-grow shrink-0 min-w-[200px] shadow-sm flex flex-col items-center justify-center gap-1.5 transition-all duration-300 hover:shadow-md ${
+        isSelected ? "border-gray-800 ring-1 ring-gray-800" : "border-gray-300"
+      }`}
+    >
+      <h4 className="text-xl font-semibold text-gray-900 leading-tight">
+        {variant.name}
+      </h4>
+      <p className="text-gray-800 text-sm font-medium">({variant.tag})</p>
+      <p className="text-slate-500 text-sm">mulai dari Rp{variant.price}</p>
+    </div>
   );
 }

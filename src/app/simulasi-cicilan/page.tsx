@@ -4,6 +4,8 @@ import { useState, useMemo } from "react";
 import { motion } from "framer-motion";
 import { FaMoneyBillWave, FaWhatsapp } from "react-icons/fa";
 import { carList } from "@/lib/carList";
+import Logo from "@/components/Logo";
+import contactInfo from "@/lib/contactInfo";
 
 export default function SimulasiCicilan() {
   const [selectedSeries, setSelectedSeries] = useState("");
@@ -33,7 +35,7 @@ export default function SimulasiCicilan() {
     e.preventDefault();
 
     // Create WhatsApp message
-    const message = `Halo, saya ingin simulasi cicilan BMW dengan detail berikut:
+    const message = `Halo, saya ingin simulasi cicilan BYD dengan detail berikut:
     
 Series: ${selectedSeries.toUpperCase()}
 Tenor: ${tenor} bulan (${Math.floor(tenor / 12)} tahun)
@@ -41,9 +43,7 @@ Down Payment: Rp ${formatCurrency(downPayment)}
 
 Mohon informasi lebih lanjut. Terima kasih!`;
 
-    // WhatsApp number (replace with actual number)
-    const phoneNumber = "6285117576041"; // Replace with your WhatsApp number
-    const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(
+    const whatsappUrl = `https://wa.me/${contactInfo.phone}?text=${encodeURIComponent(
       message,
     )}`;
 
@@ -63,14 +63,12 @@ Mohon informasi lebih lanjut. Terima kasih!`;
         >
           {/* Page Title */}
           <div className="text-center mb-12">
-            <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-              Installment Simulation{" "}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-blue-400">
-                BMW
-              </span>
+            <h1 className="text-4xl md:text-5xl font-semibold text-gray-900 mb-4">
+              Simulasi Cicilan BYD
             </h1>
             <p className="text-gray-600 text-lg">
-              Fill in the form and we'll contact you via WhatsApp
+              Isi form di bawah ini dan tim kami akan segera menghubungi Anda
+              melalui WhatsApp.
             </p>
           </div>
 
@@ -85,18 +83,18 @@ Mohon informasi lebih lanjut. Terima kasih!`;
               {/* Series Dropdown */}
               <div>
                 <label className="block text-gray-700 font-semibold mb-3">
-                  BMW Series <span className="text-red-500">*</span>
+                  BYD Series <span className="text-red-500">*</span>
                 </label>
                 <select
                   value={selectedSeries}
                   onChange={(e) => setSelectedSeries(e.target.value)}
-                  className="w-full px-4 py-3 bg-white border border-gray-300 rounded-lg text-gray-900 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
+                  className="w-full px-4 py-3 bg-white border border-gray-300 rounded-lg text-gray-900 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:border-transparent transition-all"
                   required
                 >
                   <option value="">Select Series</option>
                   {seriesOptions.map((series) => (
                     <option key={series} value={series}>
-                      BMW {series.toUpperCase()}
+                      BYD {series.toUpperCase()}
                     </option>
                   ))}
                 </select>
@@ -110,7 +108,7 @@ Mohon informasi lebih lanjut. Terima kasih!`;
                 <select
                   value={tenor}
                   onChange={(e) => setTenor(Number(e.target.value))}
-                  className="w-full px-4 py-3 bg-white border border-gray-300 rounded-lg text-gray-900 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
+                  className="w-full px-4 py-3 bg-white border border-gray-300 rounded-lg text-gray-900 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:border-transparent transition-all"
                   required
                 >
                   <option value={12}>12 months (1 year)</option>
@@ -134,7 +132,7 @@ Mohon informasi lebih lanjut. Terima kasih!`;
                     type="text"
                     value={formatCurrency(downPayment)}
                     onChange={handleDownPaymentChange}
-                    className="w-full pl-12 pr-4 py-3 bg-white border border-gray-300 rounded-lg text-gray-900 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
+                    className="w-full pl-12 pr-4 py-3 bg-white border border-gray-300 rounded-lg text-gray-900 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:border-transparent transition-all"
                     placeholder="0"
                     required
                   />
@@ -147,8 +145,7 @@ Mohon informasi lebih lanjut. Terima kasih!`;
               {/* Submit Button */}
               <button
                 type="submit"
-                className="w-full hover:cursor-pointer bg-transparent border-2 border-blue-600 hover:bg-blue-600 text-blue-600 hover:text-white px-6 py-4 rounded-lg font-bold shadow-lg hover:shadow-xl flex items-center justify-center gap-3 text-lg"
-                disabled={!selectedSeries || !downPayment}
+                className="w-full hover:cursor-pointer bg-transparent border-2 border-gray-600 hover:bg-gray-800 text-gray-600 hover:text-white px-6  transition-colors duration-300 py-4 rounded-lg font-bold shadow-lg hover:shadow-xl flex items-center justify-center gap-3 text-lg"
               >
                 <FaWhatsapp className="text-2xl" />
                 Ask Our Sales
