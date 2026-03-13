@@ -33,42 +33,40 @@ export default function ModelDetailView({
     <>
       <main className="min-h-screen pt-[50px] md:pt-[65px] bg-gradient-to-br from-gray-50 via-white to-gray-100">
         {/* Hero Section with Car Image */}
-        <section className="relative h-[50vh] xs:h-[100vh] overflow-hidden">
+        <section className="relative h-[50vh] xs:h-[80vh] overflow-hidden">
           {/* Background Image */}
           <div className="absolute inset-0">
             <Image
-              src={"/byd-atto-1.webp"}
+              src={car.path}
               alt={car.name}
               fill
-              className="object-cover scale-100 object-center"
+              className="object-contain scale-[65%]"
               priority
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-gray-800/50 via-gray-800/10 to-transparent" />
+            {/* <div className="absolute inset-0 bg-gradient-to-b from-gray-800/10 via-gray-800/10 to-transparent" /> */}
           </div>
 
           {/* Hero Content */}
-          <div className="relative z-10 h-full px-6 sm:px-12 md:px-16">
+          <div className="relative z-10 h-full flex justify-center px-6 sm:px-12 md:px-16">
             {/* Car Name Display - Positioned closer to car */}
             <motion.div
               initial={{ opacity: 0, x: -30 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
-              // className="absolute top-12 left-0 right-0 flex flex-col items-center"
-
               className="absolute top-8 left-4 sm:left-24 lg:left-36"
             >
               {/* "THE" prefix */}
-              {/* <p className="text-base sm:text-3xl ml-1.5 text-black font-medium mb-2">
-                BYD
-              </p> */}
+              <p className="text-base sm:text-xl ml-1.5 tracking-[0.4em] text-gray-800 font-normal uppercase mb-2">
+                THE
+              </p>
 
               {/* Car Name - Clean and Bold */}
-              <h1 className="text-2xl sm:text-5xl md:text-5xl lg:text-5xl xl:text-6xl font-bold text-black leading-tight tracking-tight mb-2 font-mono">
-                BYD {car.name.replace("BYD ", "")}
+              <h1 className="text-2xl sm:text-5xl md:text-5xl lg:text-5xl xl:text-6xl font-bold text-gray-900 leading-tight tracking-tight mb-2 font-mono">
+                {car.name.replace("BYD ", "")}
               </h1>
 
               {/* Subtle underline accent */}
-              {/* <div className="w-20 h-1 bg-white rounded-full"></div> */}
+              <div className="w-20 h-1 bg-gray-800 rounded-full"></div>
             </motion.div>
 
             {/* Action Buttons */}
@@ -83,6 +81,7 @@ export default function ModelDetailView({
               onClick={handleDownloadSpecCard}
               className="bg-gray-800 text-white px-6 py-3 font-semibold hover:bg-blue-700 transition-all duration-300 shadow-lg flex items-center gap-2 w-full justify-center cursor-pointer"
             >
+              {/* <CardSim /> */}
               Download Spec Card
             </motion.button>
           ) : (
@@ -90,6 +89,7 @@ export default function ModelDetailView({
               disabled
               className="bg-gray-400 text-white px-6 py-3 font-semibold transition-all duration-300 shadow-lg flex items-center gap-2 w-full justify-center cursor-not-allowed opacity-60"
             >
+              {/* <CardSim /> */}
               Spec Card Not Available
             </motion.button>
           )}
@@ -105,10 +105,11 @@ export default function ModelDetailView({
             }}
             className="bg-white text-blue-600 px-6 py-3 font-semibold hover:bg-gray-100 transition-all duration-300 shadow-lg border-2 border-blue-600 flex items-center gap-2 w-full justify-center cursor-pointer"
           >
+            {/* <Flashlight /> */}
             Request Test Drive
           </motion.button>
         </section>
-
+        {/* Title Section */}
         {car.title && (
           <section className="px-4 py-16 flex flex-col sm:gap-12 gap-8">
             <div className="max-w-2xl mx-auto ">
@@ -121,6 +122,7 @@ export default function ModelDetailView({
                 <h2 className="text-2xl sm:text-3xl md:text-4xl font-normal text-gray-900 mb-6 text-center">
                   {car.title}
                 </h2>
+                {/* <div className="w-24 h-1 bg-gray-800 rounded-full mx-auto"></div> */}
               </motion.div>
             </div>
             <div className="max-w-3xl mx-auto">
@@ -150,7 +152,7 @@ export default function ModelDetailView({
               <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-8 text-center">
                 Technical Specifications
               </h2>
-              <div className="w-36 h-1 bg-gray-800 rounded-full mx-auto  mb-24"></div>
+              <div className="w-36 h-1 bg-gray-800 rounded-full mx-auto mb-24"></div>
 
               {/* Two Column Layout: Image + Specs */}
               <div className="grid grid-cols-1 lg:grid-cols-5 gap-8 lg:gap-12 items-center">
