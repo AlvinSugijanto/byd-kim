@@ -144,7 +144,7 @@ export default function HeroMain() {
             transition={{ duration: 1.5, repeat: Infinity }}
             className="text-white text-center"
           >
-            <p className="text-sm mb-2 opacity-80">Gulir untuk menjelajahi</p>
+            <p className="text-sm mb-2 opacity-80">Scroll untuk menjelajahi</p>
             <svg
               className="w-6 h-6 mx-auto"
               fill="none"

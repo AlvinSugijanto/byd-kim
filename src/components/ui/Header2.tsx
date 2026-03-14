@@ -148,7 +148,7 @@ export default function Header2() {
         <Link
           key={"simulate-installment"}
           href={"/simulasi-cicilan"}
-          className="hidden lg:flex px-5 py-2 rounded-lg font-semibold items-center gap-2 text-xs transition-all duration-300 bg-white text-black hover:bg-gray-200 shadow-md border border-transparent"
+          className=" text-sm hidden lg:flex px-5 py-2 rounded-lg font-semibold items-center gap-2 transition-all duration-300 bg-white text-black hover:bg-gray-200 shadow-md border border-transparent"
         >
           Simulasi Cicilan
           <FaArrowRight className="transform -rotate-45" />
@@ -198,7 +198,7 @@ export default function Header2() {
           <Link
             key={"simulate-installment"}
             href={"/simulasi-cicilan"}
-            className="px-6 py-3 rounded-lg font-semibold text-center transition-all duration-300 flex items-center justify-center gap-2 bg-white text-black hover:bg-gray-100 border border-transparent border-gray-200"
+            className="px-6 py-3 text-sm rounded-lg font-semibold text-center transition-all duration-300 flex items-center justify-center gap-2 bg-white text-black hover:bg-gray-100 border border-transparent border-gray-200"
             onClick={() => setMobileMenuOpen(false)}
           >
             Simulasi Cicilan

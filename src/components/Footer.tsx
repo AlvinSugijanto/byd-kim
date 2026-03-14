@@ -59,7 +59,7 @@ export default function Footer() {
 
           {/* Models */}
           <div>
-            <h4 className="font-bold text-lg mb-6">Model Kami</h4>
+            <h4 className="font-bold text-lg mb-6">Model</h4>
             <ul className="space-y-3 text-gray-300">
               {modelList.map((model) => (
                 <li key={model}>

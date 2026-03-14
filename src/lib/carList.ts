@@ -5,7 +5,7 @@ export const carList = [
     path: "/byd-png/byd-seal.png",
     type: "electric",
     tag: "sedan",
-    title: "Dinamis & Cerdas | Sedan Premium Full Elektrik",
+    title: "Elevate Acceleration",
     description:
       "BYD SEAL adalah mahakarya sejati dari desain yang terinspirasi oleh lautan. Menampilkan ujung depan berbentuk X yang memancarkan kesan sporty dan gaya, mobil ini mengintegrasikan Teknologi CTB (cell-to-body) yang dikembangkan sendiri oleh BYD secara mulus untuk meningkatkan keselamatan dan performa.",
 
@@ -35,6 +35,7 @@ export const carList = [
         },
       },
     ],
+    specCard: "/spec-card/BYD SEAL 2025 - BROCHURE.pdf",
   },
   {
     name: "BYD ATTO 3",
@@ -42,21 +43,18 @@ export const carList = [
     path: "/byd-png/byd-atto-3.png",
     type: "electric",
     tag: "suv",
-    title: "C-SUV yang Ekspresif dan Dinamis",
+    title: "Elevate Versatility",
     description:
       "BYD ATTO 3 melambangkan Kecepatan, Energi, dan Dinamika. Dilengkapi dengan e-Platform 3.0 yang revolusioner, mobil ini memadukan kecerdasan, efisiensi, dan keselamatan dengan sempurna untuk memberikan pengalaman berkendara yang tenang, nyaman, dan menyenangkan.",
 
     variants: [
       {
-        name: "Advanced",
+        name: "Advanced Plus",
         tag: "Standard Range",
         price: "415.000.000",
         content: {
-          "Torsi Maksimum": "310 N.m",
-          "Daya Maksimum": "150 kW",
           "Jarak Mengemudi NEDC": "410 km",
           "Kapasitas Baterai": "49.92 kWh",
-          "0-100 km/h": "7.9s",
         },
       },
       {
@@ -72,6 +70,7 @@ export const carList = [
         },
       },
     ],
+    specCard: "/spec-card/ATTO3 2025 - BROCHURE.pdf",
   },
   {
     name: "BYD ATTO 1",
@@ -79,7 +78,7 @@ export const carList = [
     path: "/byd-png/byd-atto.png",
     type: "electric",
     tag: "suv",
-    title: "Inovasi Mobil Listrik Kompak",
+    title: "Energy In Motion",
     description:
       "Dirancang untuk gaya hidup urban modern, kendaraan listrik kompak ini menawarkan efisiensi dan gaya. Dibangun di atas platform EV canggih BYD, mobil ini menghadirkan pengalaman berkendara yang mulus, cerdas, dan ramah lingkungan untuk berkendara di kota dan sekitarnya.",
 
@@ -109,6 +108,7 @@ export const carList = [
         },
       },
     ],
+    specCard: "/spec-card/BYD ATTO1 - BROCHURE.pdf",
   },
   {
     name: "BYD DOLPHIN",
@@ -116,7 +116,7 @@ export const carList = [
     path: "/byd-png/byd-dolphin.png",
     type: "electric",
     tag: "hatchback",
-    title: "Hatchback yang Lincah dan Serbaguna",
+    title: "Elevate Attraction",
     description:
       "Mengadopsi konsep desain 'Estetika Laut', BYD Dolphin mendefinisikan ulang mobilitas perkotaan dengan desainnya yang ramping, teknologi canggih, dan efisiensi yang mengesankan. Ini adalah hatchback dengan desain dinamis yang lapang, futuristik, dan sempurna untuk kehidupan kota.",
 
@@ -146,6 +146,7 @@ export const carList = [
         },
       },
     ],
+    specCard: "/spec-card/BYD DOLPHIN - BROCHURE.pdf",
   },
   {
     name: "BYD M6",
@@ -153,7 +154,7 @@ export const carList = [
     path: "/byd-png/byd-m6.png",
     type: "electric",
     tag: "mpv",
-    title: "MPV Listrik Pilihan Keluarga",
+    title: "Elevate Everyday",
     description:
       "Petualangan listrik keluarga Anda dimulai di sini. BYD M6 adalah mobil 7-penumpang lapang yang dirancang untuk kenyamanan dan keselamatan maksimal, memadukan efisiensi dengan keanggunan tertinggi dengan sempurna untuk perjalanan keluarga yang tanpa beban.",
 
@@ -195,6 +196,7 @@ export const carList = [
         },
       },
     ],
+    specCard: "/spec-card/BYD M6 - BROCHURE.pdf",
   },
 
   {
@@ -203,7 +205,7 @@ export const carList = [
     path: "/byd-png/byd-sealion-7.png",
     type: "electric",
     tag: "suv",
-    title: "SUV Listrik Cerdas Berperforma Tinggi",
+    title: "Innovation Unleashed",
     description:
       "Lebih dari sekadar SUV, BYD Sealion 7 adalah pernyataan gaya hidup yang dibuat bagi mereka yang menjalani hidup dengan semangat penuh. Mobil ini secara mulus memadukan estetika yang terinspirasi oleh lautan dengan inovasi performa tinggi mutakhir untuk mendefinisikan ulang arti premium.",
 
@@ -233,5 +235,6 @@ export const carList = [
         },
       },
     ],
+    specCard: "/spec-card/BYD SEALION7 - BROCHURE.pdf",
   },
 ];
