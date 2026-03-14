@@ -15,7 +15,6 @@ import Link from "next/link";
 export default function Model() {
   return (
     <section className="bg-white overflow-hidden">
-      {/* Carousel Section - Total */}
       <CarouselSection />
     </section>
   );
@@ -23,73 +22,85 @@ export default function Model() {
 
 // Carousel Component using Swiper
 function CarouselSection() {
-  // Array of carousel images with text content
   const carouselImages = [
     {
       src: "/car-list/byd-atto3.webp",
-      alt: "BYD Atto 3",
-      title: "BYD Atto 3",
-      description: "Mobil listrik BYD M paling bertenaga",
+      alt: "BYD ATTO 3",
+      title: "BYD ATTO 3",
+      description: "Elevate Versatility",
       showText: true,
       position: {
         title: { x: 0, y: 25 },
         description: { x: 0, y: 35 },
         button: { x: 0, y: 45 },
       },
-      href: "/model/i7-sedan",
+      href: "/model/atto-3",
     },
     {
       src: "/car-list/byd-atto1.webp",
-      alt: "BYD Atto 1",
-      title: "BYD Atto 1",
-      description: "Mobil listrik BYD M paling bertenaga",
+      alt: "BYD ATTO 1",
+      title: "BYD ATTO 1",
+      description: "Energy In Motion",
       showText: true,
       position: {
         title: { x: 0, y: 25 },
         description: { x: 0, y: 35 },
         button: { x: 0, y: 45 },
       },
-      href: "/model/m4-coupe",
+      href: "/model/atto-1",
     },
 
     {
       src: "/car-list/byd-dolphin.webp",
-      alt: "BYD Dolphin",
-      title: "BYD Dolphin",
-      description: "Desain Eksklusif.",
+      alt: "BYD DOLPHIN",
+      title: "BYD DOLPHIN",
+      description: "Elevate Attraction",
       showText: true,
       position: {
         title: { x: 0, y: 25 },
         description: { x: 0, y: 35 },
         button: { x: 0, y: 45 },
       },
-      href: "/model/m3-touring",
+      href: "/model/dolphin",
     },
     {
       src: "/car-list/byd-m6.webp",
       alt: "BYD M6",
       title: "BYD M6",
-      description: "Mobil listrik BYD M paling bertenaga",
+      description: "Elevate Everyday",
       showText: true,
       position: {
         title: { x: 0, y: 25 },
         description: { x: 0, y: 35 },
         button: { x: 0, y: 45 },
       },
-      href: "/model/m2-coupe",
+      href: "/model/m6",
     },
     {
       src: "/car-list/byd-seal.webp",
       alt: "BYD SEAL",
       title: "BYD SEAL",
-      description: "Mobil listrik BYD M paling bertenaga",
+      description: "Elevate Acceleration",
       showText: true,
       position: {
         title: { x: 0, y: 25 },
         description: { x: 0, y: 35 },
         button: { x: 0, y: 45 },
       },
-      href: "/model/m2-coupe",
+      href: "/model/seal",
+    },
+    {
+      src: "/car-list/byd-sealion7.webp",
+      alt: "BYD SEALION 7",
+      title: "BYD SEALION 7",
+      description: "Innovation Unleashed",
+      showText: true,
+      position: {
+        title: { x: 0, y: 25 },
+        description: { x: 0, y: 35 },
+        button: { x: 0, y: 45 },
+      },
+      href: "/model/sealion-7",
     },
   ];
 

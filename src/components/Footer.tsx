@@ -117,7 +117,7 @@ export default function Footer() {
               <li className="flex items-start gap-3">
                 <Phone className="w-5 h-5 mt-1 flex-shrink-0 text-blue-400" />
                 <a
-                  href={`tel:${contactInfo.phone}`}
+                  href={`${contactInfo.waLink}`}
                   className="hover:text-blue-400 transition-colors"
                 >
                   {contactInfo.phone}

@@ -27,7 +27,7 @@ export default function ContactUs() {
       overlay: "Kirim Email",
     },
     {
-      link: `https://maps.app.goo.gl/3957v11111111111`,
+      link: contactInfo.mapsLink,
       icon: <FaMapMarkerAlt />,
       title: "Lokasi",
       content: [contactInfo.full_address],
@@ -74,8 +74,10 @@ export default function ContactUs() {
                     <h4 className="font-semibold text-gray-900 mb-1 group-hover:text-gray-800 transition-colors">
                       {item.title}
                     </h4>
-                    {item.content.map((content) => (
-                      <p className="text-gray-600">{content}</p>
+                    {item.content.map((content, index) => (
+                      <p className="text-gray-600" key={index}>
+                        {content}
+                      </p>
                     ))}
                     {/* <p className="text-gray-600">Mon - Sun: 8:30 AM - 7:00 PM</p> */}
                   </div>

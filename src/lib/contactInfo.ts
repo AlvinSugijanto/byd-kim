@@ -6,6 +6,7 @@ const contactInfo = {
   address: "Bandung, Indonesia",
   full_address:
     "Jl. Jend. H. Amir Machmud No.51, Cibeureum, Kec. Cimahi Sel., Kota Cimahi, Jawa Barat 40535",
+  mapsLink: "https://maps.app.goo.gl/QLByrBSKY7SYZVrP6",
 };
 
 export default contactInfo;

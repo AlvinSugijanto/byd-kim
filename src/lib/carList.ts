@@ -50,7 +50,7 @@ export const carList = [
       {
         name: "Advanced",
         tag: "Standard Range",
-        price: "639.000.000",
+        price: "415.000.000",
         content: {
           "Torsi Maksimum": "310 N.m",
           "Daya Maksimum": "150 kW",
@@ -66,8 +66,8 @@ export const carList = [
         content: {
           "Torsi Maksimum": "310 N.m",
           "Daya Maksimum": "150 kW",
-          "Jarak Mengemudi NEDC": "410 km",
-          "Kapasitas Baterai": "49.92 kWh",
+          "Jarak Mengemudi NEDC": "480 km",
+          "Kapasitas Baterai": "60.48 kWh",
           "0-100 km/h": "7.9s",
         },
       },
@@ -93,7 +93,7 @@ export const carList = [
           "Daya Maksimum": "55 kW",
           "Jarak Mengemudi NEDC": "300 km",
           "Kapasitas Baterai": "30.08 kWh",
-          "0-100 km/h": "4.9s",
+          "0-50 km/h": "4.9s",
         },
       },
       {
@@ -105,14 +105,14 @@ export const carList = [
           "Daya Maksimum": "55 kW",
           "Jarak Mengemudi NEDC": "380 km",
           "Kapasitas Baterai": "38.88 kWh",
-          "0-100 km/h": "4.9s",
+          "0-50 km/h": "4.9s",
         },
       },
     ],
   },
   {
-    name: "BYD DOLPHINE",
-    series: "dolphine",
+    name: "BYD DOLPHIN",
+    series: "dolphin",
     path: "/byd-png/byd-dolphin.png",
     type: "electric",
     tag: "hatchback",
