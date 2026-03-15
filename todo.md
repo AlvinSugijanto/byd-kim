@@ -4,9 +4,9 @@
 -add spec card download(done)
 -car detail hero section bikin pakai background flyer(done)
 -m6 di section kedua nya on mobile masih jelek(done)
+-tambahin denza(done)
 
 -add mini changes in model-view
--tambahin denza
 -tambahin variant atto3
 
 notes detail :

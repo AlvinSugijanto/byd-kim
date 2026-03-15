@@ -49,6 +49,18 @@ export const carList = [
 
     variants: [
       {
+        name: "Advanced",
+        tag: "Standard Range",
+        price: "390.000.000",
+        content: {
+          "Torsi Maksimum": "310 N.m",
+          "Daya Maksimum": "150 kW",
+          "Jarak Mengemudi NEDC": "410 km",
+          "Kapasitas Baterai": "49.92 kWh",
+          "0-100 km/h": "7.9s",
+        },
+      },
+      {
         name: "Advanced Plus",
         tag: "Standard Range",
         price: "415.000.000",
