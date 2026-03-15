@@ -10,6 +10,7 @@ import Sealion7DetailView from "@/sections/model/detail/sealion7-detail-view";
 import { ComponentType } from "react";
 import { ModelDetailProps } from "@/types/model";
 import ModelDetailView from "@/sections/model/detail/model-detail-view";
+import DenzaDetailView from "@/sections/model/detail/denza-detail-view";
 
 interface PageProps {
   params: Promise<{
@@ -25,6 +26,7 @@ const viewMap: Record<string, ComponentType<ModelDetailProps>> = {
   dolphin: DolphinDetailView,
   m6: M6DetailView,
   "sealion-7": Sealion7DetailView,
+  denza: DenzaDetailView,
 };
 
 // Generate metadata for SEO

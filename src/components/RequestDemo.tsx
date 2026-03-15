@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { useState } from "react";
 import { motion } from "framer-motion";
+import contactInfo from "@/lib/contactInfo";
 
 export default function RequestDemo() {
   const [formData, setFormData] = useState({
@@ -15,7 +16,6 @@ export default function RequestDemo() {
     e.preventDefault();
 
     // Build WhatsApp message
-    const phoneNumber = "6285117576041"; // Ganti dengan nomor WA yang sesuai
     let message = "Halo, saya ingin request test drive BYD.%0A%0A";
 
     if (formData.name) {
@@ -31,7 +31,7 @@ export default function RequestDemo() {
     message +=
       "%0AMohon informasi lebih lanjut mengenai:%0A- Jadwal test drive yang tersedia%0A- Lokasi test drive%0A- Promo dan penawaran terbaru%0A%0ATerima kasih!";
 
-    const whatsappUrl = `https://wa.me/${phoneNumber}?text=${message}`;
+    const whatsappUrl = `${contactInfo.waLink}?text=${message}`;
     window.open(whatsappUrl, "_blank");
   };
 
@@ -43,15 +43,18 @@ export default function RequestDemo() {
   };
 
   return (
-    <section id="request-demo" className="w-full bg-white mb-10 overflow-hidden">
+    <section
+      id="request-demo"
+      className="w-full bg-white mb-10 overflow-hidden"
+    >
       <div className="flex flex-col md:flex-row w-full min-h-[500px]">
         {/* Left side: Image */}
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, x: -50 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.8 }}
-          className="xs:block hidden w-full md:w-1/2 relative min-h-[300px] md:min-h-[500px]"
+          className="md:block hidden w-full md:w-1/2 relative min-h-[300px] md:min-h-[500px]"
         >
           <Image
             src="/test-drive.png"
@@ -63,7 +66,7 @@ export default function RequestDemo() {
         </motion.div>
 
         {/* Right side: Content */}
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, x: 50 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true, margin: "-100px" }}
@@ -74,10 +77,12 @@ export default function RequestDemo() {
             <h2 className="text-3xl md:text-4xl text-[#1a1a1a] font-normal mb-6 tracking-wide">
               Jelajahi Penawaran BYD
             </h2>
-            <p className="text-gray-600 mb-8 leading-relaxed text-[15px]">
-              Pilih antara kendaraan 100% listrik atau hibrida plug-in. Bersama BYD, 
-              teknologi canggih, keselamatan, dan kepercayaan berkendara berpadu
-              untuk membantu Anda mewujudkan mobil impian.
+            <p className="text-gray-600 mb-8 leading-relaxed">
+              BYD menghadirkan inovasi kendaraan listrik dengan teknologi
+              baterai terdepan, desain modern, dan standar keselamatan tinggi.
+              Setiap kendaraan dirancang untuk memberikan pengalaman berkendara
+              yang efisien, ramah lingkungan, dan penuh kepercayaan di setiap
+              perjalanan.
             </p>
 
             <form onSubmit={handleSubmit} className="space-y-4 w-full">

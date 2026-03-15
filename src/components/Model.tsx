@@ -31,8 +31,8 @@ function CarouselSection() {
       showText: true,
       position: {
         title: { x: 0, y: 25 },
-        description: { x: 0, y: 35 },
-        button: { x: 0, y: 45 },
+        description: { x: 0, y: 30 },
+        button: { x: 0, y: 35 },
       },
       href: "/model/atto-3",
     },
@@ -102,6 +102,19 @@ function CarouselSection() {
       },
       href: "/model/sealion-7",
     },
+    {
+      src: "/car-list/denza.webp",
+      alt: "DENZA D9",
+      title: "DENZA D9",
+      description: "Elegance Reimagined",
+      showText: true,
+      position: {
+        title: { x: 0, y: 25 },
+        description: { x: 0, y: 35 },
+        button: { x: 0, y: 45 },
+      },
+      href: "/model/denza",
+    },
   ];
 
   // --- Heading Style Toggle State ---
@@ -111,29 +124,6 @@ function CarouselSection() {
 
   return (
     <div className="w-full mb-10 relative">
-      {/* Dev UI Toggle (Temporary, remove before production) */}
-      {/* <div className="absolute top-0 right-4 flex gap-2 z-50 text-xs text-gray-900 border border-gray-100 rounded-md p-2 bg-white/50 backdrop-blur-sm">
-        <span className="self-center font-semibold mr-2">Style:</span>
-        <button
-          onClick={() => setHeadingStyle("default")}
-          className={`px-3 py-1 rounded border transition-colors ${headingStyle === "default" ? "bg-black text-white" : "bg-white text-black hover:bg-gray-100"}`}
-        >
-          Default
-        </button>
-        <button
-          onClick={() => setHeadingStyle("elegant")}
-          className={`px-3 py-1 rounded border transition-colors ${headingStyle === "elegant" ? "bg-black text-white" : "bg-white text-black hover:bg-gray-100"}`}
-        >
-          Elegant
-        </button>
-        <button
-          onClick={() => setHeadingStyle("hitech")}
-          className={`px-3 py-1 rounded border transition-colors ${headingStyle === "hitech" ? "bg-black text-white" : "bg-white text-black hover:bg-gray-100"}`}
-        >
-          Hi-Tech
-        </button>
-      </div> */}
-
       {/* Heading */}
       <motion.div
         initial={{ opacity: 0, y: 20 }}
@@ -200,7 +190,7 @@ function CarouselSection() {
               },
             },
           }}
-          className="w-full aspect-[16/16] h-full sm:h-[670px]"
+          className="w-full aspect-[16/16] h-[670px]"
         >
           {carouselImages.map((image, index) => (
             <SwiperSlide key={index}>
@@ -219,52 +209,29 @@ function CarouselSection() {
 
                 {/* Text Overlay */}
                 {image.showText && (
-                  <div className="absolute inset-0 z-20">
-                    <div className="w-full h-full px-8 md:px-16">
+                  <div className="absolute inset-0  z-20">
+                    <div className="w-full h-full px-8 md:px-16 flex items-center">
                       <motion.div
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
                         transition={{ duration: 0.8, delay: 0.3 }}
-                        className="w-full h-full max-w-7xl mx-auto relative"
+                        className="w-full max-w-7xl mx-auto flex flex-col gap-6 mb-64 md:mb-36"
                       >
                         {/* Title */}
-                        <motion.h3
-                          className="text-4xl md:text-6xl lg:text-7xl font-semibold text-white leading-tight tracking-tighter absolute"
-                          style={{
-                            left: `${image.position.title.x}%`,
-                            top: `${image.position.title.y}%`,
-                            transform: "translate(0, -50%)",
-                          }}
-                        >
+                        <motion.h3 className="text-4xl md:text-6xl lg:text-7xl font-semibold text-white leading-tight tracking-tighter">
                           {image.title}
                         </motion.h3>
 
                         {/* Description */}
-                        <motion.p
-                          className="text-lg md:text-xl lg:text-2xl text-white/90 font-light tracking-wide max-w-2xl absolute sm:mt-0 mt-4"
-                          style={{
-                            left: `${image.position.description.x}%`,
-                            top: `${image.position.description.y}%`,
-                            transform: "translate(0, -50%)",
-                          }}
-                        >
+                        <motion.p className="text-lg md:text-xl lg:text-2xl text-white/90 font-light tracking-wide max-w-2xl">
                           {image.description}
                         </motion.p>
 
                         {/* Button */}
                         <Link href={`${image.href}`}>
-                          <motion.div
-                            className="absolute sm:mt-0 mt-8"
-                            style={{
-                              left: `${image.position.button.x}%`,
-                              top: `${image.position.button.y}%`,
-                              transform: "translate(0, -50%)",
-                            }}
-                          >
-                            <button className="bg-white hover:bg-gray-100 text-gray-900 px-8 py-4 font-semibold text-sm md:text-base transition-all rounded-lg shadow-lg hover:shadow-xl transform hover:scale-105 tracking-wide uppercase">
-                              Jelajahi Sekarang
-                            </button>
-                          </motion.div>
+                          <button className="w-fit bg-white hover:bg-gray-100 text-gray-900 px-8 py-4 font-semibold text-sm md:text-base transition-all rounded-lg shadow-lg hover:shadow-xl transform hover:scale-105 tracking-wide uppercase">
+                            Jelajahi Sekarang
+                          </button>
                         </Link>
                       </motion.div>
                     </div>

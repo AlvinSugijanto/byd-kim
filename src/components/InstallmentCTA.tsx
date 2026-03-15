@@ -7,10 +7,13 @@ import { motion } from "framer-motion";
 
 export default function InstallmentCTA() {
   return (
-    <section id="simulate-installment" className="w-full bg-white mb-10 overflow-hidden">
+    <section
+      id="simulate-installment"
+      className="w-full bg-white mb-10 overflow-hidden"
+    >
       <div className="flex flex-col md:flex-row w-full min-h-[500px]">
         {/* Left side: Content */}
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, x: -50 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true, margin: "-100px" }}
@@ -21,9 +24,10 @@ export default function InstallmentCTA() {
             <h2 className="text-3xl md:text-4xl text-[#1a1a1a] font-normal mb-6 tracking-wide">
               Hitung Cicilan BYD Anda
             </h2>
-            <p className="text-gray-600 mb-8 leading-relaxed text-[15px]">
-              Rencanakan pembelian BYD Anda dengan simulasi cicilan yang mudah dan
-              transparan. Dapatkan estimasi pembayaran bulanan Anda dalam hitungan detik.
+            <p className="text-gray-600 mb-8 leading-relaxed">
+              Rencanakan pembelian BYD Anda dengan simulasi cicilan yang mudah
+              dan transparan. Dapatkan estimasi pembayaran bulanan Anda dalam
+              hitungan detik.
             </p>
 
             {/* Features Outline */}
@@ -31,22 +35,34 @@ export default function InstallmentCTA() {
               <div className="flex items-start gap-4">
                 <FaCalculator className="text-2xl text-gray-800 shrink-0 mt-1" />
                 <div>
-                  <h3 className="text-gray-900 font-semibold mb-1">Perhitungan Akurat</h3>
-                  <p className="text-gray-500 text-sm">Hitung cicilan dengan suku bunga terkini</p>
+                  <h3 className="text-gray-900 font-semibold mb-1">
+                    Perhitungan Akurat
+                  </h3>
+                  <p className="text-gray-500 text-sm">
+                    Hitung cicilan dengan suku bunga terkini
+                  </p>
                 </div>
               </div>
               <div className="flex items-start gap-4">
                 <FaChartLine className="text-2xl text-gray-800 shrink-0 mt-1" />
                 <div>
-                  <h3 className="text-gray-900 font-semibold mb-1">Berbagai Pilihan Tenor</h3>
-                  <p className="text-gray-500 text-sm">Pilih tenor dari 12 hingga 60 bulan</p>
+                  <h3 className="text-gray-900 font-semibold mb-1">
+                    Berbagai Pilihan Tenor
+                  </h3>
+                  <p className="text-gray-500 text-sm">
+                    Pilih tenor dari 12 hingga 60 bulan
+                  </p>
                 </div>
               </div>
               <div className="flex items-start gap-4">
                 <FaCheckCircle className="text-2xl text-gray-800 shrink-0 mt-1" />
                 <div>
-                  <h3 className="text-gray-900 font-semibold mb-1">Tanpa Komitmen</h3>
-                  <p className="text-gray-500 text-sm">Simulasi gratis tanpa kewajiban</p>
+                  <h3 className="text-gray-900 font-semibold mb-1">
+                    Tanpa Komitmen
+                  </h3>
+                  <p className="text-gray-500 text-sm">
+                    Simulasi gratis tanpa kewajiban
+                  </p>
                 </div>
               </div>
             </div>
@@ -61,7 +77,7 @@ export default function InstallmentCTA() {
         </motion.div>
 
         {/* Right side: Image */}
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, x: 50 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true, margin: "-100px" }}

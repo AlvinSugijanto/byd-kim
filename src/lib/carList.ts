@@ -237,4 +237,43 @@ export const carList = [
     ],
     specCard: "/spec-card/BYD SEALION7 - BROCHURE.pdf",
   },
+
+  {
+    name: "DENZA D9",
+    series: "denza",
+    path: "/byd-png/denza.png",
+    type: "electric",
+    tag: "sedan",
+    title: "Elegance Reimagined",
+    description:
+      "Denza D9 menghadirkan standar baru dalam mobilitas premium. MPV listrik tujuh penumpang ini memadukan sistem motor terintegrasi delapan-dalam-satu dengan BYD Blade Battery, menghasilkan performa yang bertenaga sekaligus efisien. Dengan teknologi canggih tersebut, Denza D9 memberikan pengalaman berkendara yang nyaman dan berkelas, tanpa mengesampingkan aspek keselamatan sebagai prioritas utama",
+
+    variants: [
+      {
+        name: "Premium",
+        tag: "Extended Range",
+        price: "655.000.000",
+        content: {
+          "Torsi Maksimum": "360 N.m",
+          "Daya Maksimum": "230 kW",
+          "Jarak Mengemudi NEDC": "600 km",
+          "Kapasitas Baterai": "103.36 kWh",
+          "0-100 km/h": "9.5 s",
+        },
+      },
+      {
+        name: "Performance",
+        tag: "AWD",
+        price: "766.000.000",
+        content: {
+          "Torsi Maksimum": "670 N.m",
+          "Daya Maksimum": "390 kW",
+          "Jarak Mengemudi NEDC": "580 km",
+          "Kapasitas Baterai": "82.56 kWh",
+          "0-100 km/h": "3.8s",
+        },
+      },
+    ],
+    specCard: "/spec-card/BYD SEAL 2025 - BROCHURE.pdf",
+  },
 ];

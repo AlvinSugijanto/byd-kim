@@ -43,7 +43,7 @@ Down Payment: Rp ${formatCurrency(downPayment)}
 
 Mohon informasi lebih lanjut. Terima kasih!`;
 
-    const whatsappUrl = `https://wa.me/${contactInfo.phone}?text=${encodeURIComponent(
+    const whatsappUrl = `${contactInfo.waLink}?text=${encodeURIComponent(
       message,
     )}`;
 
@@ -83,7 +83,7 @@ Mohon informasi lebih lanjut. Terima kasih!`;
               {/* Series Dropdown */}
               <div>
                 <label className="block text-gray-700 font-semibold mb-3">
-                  BYD Series <span className="text-red-500">*</span>
+                  Seri BYD <span className="text-red-500">*</span>
                 </label>
                 <select
                   value={selectedSeries}
@@ -91,7 +91,7 @@ Mohon informasi lebih lanjut. Terima kasih!`;
                   className="w-full px-4 py-3 bg-white border border-gray-300 rounded-lg text-gray-900 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:border-transparent transition-all"
                   required
                 >
-                  <option value="">Select Series</option>
+                  <option value="">Pilih Seri</option>
                   {seriesOptions.map((series) => (
                     <option key={series} value={series}>
                       BYD {series.toUpperCase()}
@@ -111,11 +111,11 @@ Mohon informasi lebih lanjut. Terima kasih!`;
                   className="w-full px-4 py-3 bg-white border border-gray-300 rounded-lg text-gray-900 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:border-transparent transition-all"
                   required
                 >
-                  <option value={12}>12 months (1 year)</option>
-                  <option value={24}>24 months (2 years)</option>
-                  <option value={36}>36 months (3 years)</option>
-                  <option value={48}>48 months (4 years)</option>
-                  <option value={60}>60 months (5 years)</option>
+                  <option value={12}>1 Tahun</option>
+                  <option value={24}>2 Tahun</option>
+                  <option value={36}>3 Tahun</option>
+                  <option value={48}>4 Tahun</option>
+                  <option value={60}>5 Tahun</option>
                 </select>
               </div>
 
@@ -161,8 +161,8 @@ Mohon informasi lebih lanjut. Terima kasih!`;
             className="mt-8 text-center"
           >
             <p className="text-gray-600 text-sm">
-              * This simulation is only an estimate. Actual installments may
-              vary depending on dealer and financing institution policies.
+              *Simulasi ini hanya merupakan perkiraan. Cicilan sebenarnya dapat
+              berbeda tergantung pada kebijakan dealer dan lembaga pembiayaan.*
             </p>
           </motion.div>
         </motion.div>
