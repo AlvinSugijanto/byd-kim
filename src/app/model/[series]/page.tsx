@@ -1,13 +1,31 @@
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { carList } from "@/lib/carList";
-import ModelDetailView from "@/sections/model/model-detail-view";
+import Atto1DetailView from "@/sections/model/detail/atto1-detail-view";
+import SealDetailView from "@/sections/model/detail/seal-detail-view";
+import Atto3DetailView from "@/sections/model/detail/atto3-detail-view";
+import DolphinDetailView from "@/sections/model/detail/dolphin-detail-view";
+import M6DetailView from "@/sections/model/detail/m6-detail-view";
+import Sealion7DetailView from "@/sections/model/detail/sealion7-detail-view";
+import { ComponentType } from "react";
+import { ModelDetailProps } from "@/types/model";
+import ModelDetailView from "@/sections/model/detail/model-detail-view";
 
 interface PageProps {
   params: Promise<{
     series: string;
   }>;
 }
+
+// Map each series slug to its dedicated view component
+const viewMap: Record<string, ComponentType<ModelDetailProps>> = {
+  seal: SealDetailView,
+  "atto-3": Atto3DetailView,
+  "atto-1": Atto1DetailView,
+  dolphin: DolphinDetailView,
+  m6: M6DetailView,
+  "sealion-7": Sealion7DetailView,
+};
 
 // Generate metadata for SEO
 export async function generateMetadata({
@@ -99,7 +117,15 @@ export default async function CarDetailPage({ params }: PageProps) {
   const nextCar =
     currentIndex < carList.length - 1 ? carList[currentIndex + 1] : carList[0];
 
+  // Get the view component for this series, fallback to default
+  const ViewComponent = viewMap[series];
+
   return (
-    <ModelDetailView car={car} previousCar={previousCar} nextCar={nextCar} />
+    <ModelDetailView
+      viewComponent={ViewComponent}
+      car={car}
+      previousCar={previousCar}
+      nextCar={nextCar}
+    />
   );
 }
