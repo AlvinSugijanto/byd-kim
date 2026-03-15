@@ -31,10 +31,10 @@ export default function Atto3DetailView({
           {/* Background Image */}
           <div className="absolute inset-0">
             <Image
-              src={"/detail/atto-1/1.webp"}
+              src={"/detail/atto-3/1.webp"}
               alt={car.name}
               fill
-              className="object-cover [object-position:50%_30%]"
+              className="object-cover xs:object-center object-[35%_50%]"
               priority
             />
 
@@ -50,13 +50,10 @@ export default function Atto3DetailView({
               initial={{ opacity: 0, x: -30 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
-              className="absolute top-24 left-4 sm:left-24 lg:left-36"
+              className="absolute top-24 right-4 sm:right-24 lg:right-36"
             >
-              <p className="text-3xl sm:text-4xl ml-1.5 tracking-[0.4em] text-white font-semibold uppercase mb-2">
-                BYD
-              </p>
-              <h1 className="text-6xl sm:text-8xl xl:text-8xl font-bold text-white leading-tight tracking-tight mb-2 font-mono">
-                {carNameClean}
+              <h1 className="text-5xl md:text-6xl xl:text-6xl font-bold text-white leading-tight tracking-tight mb-2 font-mono">
+                BYD {carNameClean}
               </h1>
             </motion.div>
 
@@ -103,12 +100,12 @@ export default function Atto3DetailView({
             {/* Background Image */}
             <div className="absolute inset-0">
               <Image
-                src="/detail/atto-1/2.webp"
+                src="/detail/atto-3/2.webp"
                 alt="Background"
                 fill
                 className="object-cover"
               />
-              {/* <div className="absolute inset-0 bg-black/40" /> */}
+              <div className="absolute inset-0 bg-black/30" />
             </div>
 
             <div className="relative z-10 max-w-2xl mx-auto">
@@ -118,7 +115,7 @@ export default function Atto3DetailView({
                 viewport={{ once: true }}
                 transition={{ duration: 0.6 }}
               >
-                <h2 className="text-2xl sm:text-3xl md:text-4xl font-medium text-gray-800 text-center">
+                <h2 className="text-2xl sm:text-3xl md:text-4xl font-semibold text-white text-center">
                   {car.title}
                 </h2>
               </motion.div>
@@ -130,7 +127,7 @@ export default function Atto3DetailView({
                 viewport={{ once: true }}
                 transition={{ duration: 0.6 }}
               >
-                <p className="text-md md:text-xl text-gray-800 leading-relaxed text-justify">
+                <p className="text-md md:text-xl text-white font-medium text-justify">
                   {car.description}
                 </p>
               </motion.div>

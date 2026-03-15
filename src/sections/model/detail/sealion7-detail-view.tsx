@@ -31,7 +31,7 @@ export default function Sealion7DetailView({
           {/* Background Image */}
           <div className="absolute inset-0">
             <Image
-              src={"/detail/atto-1/1.webp"}
+              src={"/detail/sealion-7/1.webp"}
               alt={car.name}
               fill
               className="object-cover [object-position:50%_30%]"
@@ -103,12 +103,12 @@ export default function Sealion7DetailView({
             {/* Background Image */}
             <div className="absolute inset-0">
               <Image
-                src="/detail/atto-1/2.webp"
+                src="/detail/sealion-7/3.png"
                 alt="Background"
                 fill
-                className="object-cover"
+                className="object-cover object-[20%_60%]"
               />
-              {/* <div className="absolute inset-0 bg-black/40" /> */}
+              <div className="absolute inset-0 bg-black/40" />
             </div>
 
             <div className="relative z-10 max-w-2xl mx-auto">
@@ -118,7 +118,7 @@ export default function Sealion7DetailView({
                 viewport={{ once: true }}
                 transition={{ duration: 0.6 }}
               >
-                <h2 className="text-2xl sm:text-3xl md:text-4xl font-medium text-gray-800 text-center">
+                <h2 className="text-2xl sm:text-3xl md:text-4xl font-medium text-white text-center">
                   {car.title}
                 </h2>
               </motion.div>
@@ -130,7 +130,7 @@ export default function Sealion7DetailView({
                 viewport={{ once: true }}
                 transition={{ duration: 0.6 }}
               >
-                <p className="text-md md:text-xl text-gray-800 leading-relaxed text-justify">
+                <p className="text-md md:text-xl text-white leading-relaxed text-justify">
                   {car.description}
                 </p>
               </motion.div>

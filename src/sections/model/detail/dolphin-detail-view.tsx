@@ -31,10 +31,10 @@ export default function DolphinDetailView({
           {/* Background Image */}
           <div className="absolute inset-0">
             <Image
-              src={"/detail/atto-1/1.webp"}
+              src={"/detail/dolphin/1.webp"}
               alt={car.name}
               fill
-              className="object-cover [object-position:50%_30%]"
+              className="object-cover xs:object-center object-[75%_50%]"
               priority
             />
 
@@ -52,11 +52,11 @@ export default function DolphinDetailView({
               transition={{ duration: 0.8, delay: 0.2 }}
               className="absolute top-24 left-4 sm:left-24 lg:left-36"
             >
-              <p className="text-3xl sm:text-4xl ml-1.5 tracking-[0.4em] text-white font-semibold uppercase mb-2">
-                BYD
+              <p className="text-3xl sm:text-5xl ml-1.5 text-white font-bold uppercase mb-2">
+                BYD {carNameClean}
               </p>
               <h1 className="text-6xl sm:text-8xl xl:text-8xl font-bold text-white leading-tight tracking-tight mb-2 font-mono">
-                {carNameClean}
+                {/* {carNameClean} */}
               </h1>
             </motion.div>
 
@@ -99,14 +99,14 @@ export default function DolphinDetailView({
 
         {/* Title Section */}
         {car.title && (
-          <section className="relative h-[100vh] px-4 py-8 xs:py-16 flex flex-col sm:gap-12 gap-8 overflow-hidden">
+          <section className="relative h-[100vh] px-4 py-8 xs:py-16 flex flex-col gap-8 sm:gap-8  overflow-hidden">
             {/* Background Image */}
             <div className="absolute inset-0">
               <Image
-                src="/detail/atto-1/2.webp"
+                src="/detail/dolphin/3.webp"
                 alt="Background"
                 fill
-                className="object-cover"
+                className="object-cover object-left sm:object-center"
               />
               {/* <div className="absolute inset-0 bg-black/40" /> */}
             </div>
@@ -118,19 +118,19 @@ export default function DolphinDetailView({
                 viewport={{ once: true }}
                 transition={{ duration: 0.6 }}
               >
-                <h2 className="text-2xl sm:text-3xl md:text-4xl font-medium text-gray-800 text-center">
+                <h2 className="text-2xl sm:text-3xl md:text-4xl font-semibold text-gray-800 text-center">
                   {car.title}
                 </h2>
               </motion.div>
             </div>
-            <div className="relative z-10 max-w-3xl mx-auto">
+            <div className="relative z-10 max-w-5xl mx-auto">
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6 }}
               >
-                <p className="text-md md:text-xl text-gray-800 leading-relaxed text-justify">
+                <p className="text-md md:text-xl text-gray-800 font-medium text-justify">
                   {car.description}
                 </p>
               </motion.div>

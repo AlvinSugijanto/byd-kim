@@ -31,7 +31,7 @@ export default function M6DetailView({
           {/* Background Image */}
           <div className="absolute inset-0">
             <Image
-              src={"/detail/atto-1/1.webp"}
+              src={"/detail/m6/1.webp"}
               alt={car.name}
               fill
               className="object-cover [object-position:50%_30%]"
@@ -50,14 +50,11 @@ export default function M6DetailView({
               initial={{ opacity: 0, x: -30 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
-              className="absolute top-24 left-4 sm:left-24 lg:left-36"
+              className="absolute top-36  lg:left-36"
             >
-              <p className="text-3xl sm:text-4xl ml-1.5 tracking-[0.4em] text-white font-semibold uppercase mb-2">
-                BYD
+              <p className="text-5xl sm:text-6xl ml-1.5 tracking-[0.2em] text-white font-semibold uppercase mb-2">
+                BYD M6
               </p>
-              <h1 className="text-6xl sm:text-8xl xl:text-8xl font-bold text-white leading-tight tracking-tight mb-2 font-mono">
-                {carNameClean}
-              </h1>
             </motion.div>
 
             {/* Action Buttons */}
@@ -103,12 +100,12 @@ export default function M6DetailView({
             {/* Background Image */}
             <div className="absolute inset-0">
               <Image
-                src="/detail/atto-1/2.webp"
+                src="/detail/m6/2.webp"
                 alt="Background"
                 fill
-                className="object-cover"
+                className="object-cover object-[20%_0%]"
               />
-              {/* <div className="absolute inset-0 bg-black/40" /> */}
+              <div className="absolute inset-0 bg-gray-800/5" />
             </div>
 
             <div className="relative z-10 max-w-2xl mx-auto">
@@ -123,7 +120,7 @@ export default function M6DetailView({
                 </h2>
               </motion.div>
             </div>
-            <div className="relative z-10 max-w-3xl mx-auto">
+            <div className="relative z-10 max-w-5xl mx-auto">
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}

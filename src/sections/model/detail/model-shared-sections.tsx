@@ -33,7 +33,7 @@ export default function ModelSharedSections({
   return (
     <>
       {/* Technical Specifications Section */}
-      <section className="py-16 px-4 bg-white">
+      <section className="py-16 px-0 xs:px-4 bg-white">
         <div className="mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -41,10 +41,10 @@ export default function ModelSharedSections({
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6 text-center">
-              Spesifikasi Kendaraan
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-medium text-gray-900 mb-6 text-center">
+              SPESIFIKASI KENDARAAN
             </h2>
-            <div className="w-36 h-1 bg-gray-800 rounded-full mx-auto mb-24"></div>
+            <div className="w-24 h-0.5 bg-gray-600 rounded-full mx-auto mb-24"></div>
 
             {/* Two Column Layout: Image + Specs */}
             <div className="grid grid-cols-1 lg:grid-cols-5 gap-8 lg:gap-12 items-center">
@@ -86,9 +86,8 @@ export default function ModelSharedSections({
                   </div>
                 )}
                 <div className="col-span-2 flex flex-wrap gap-4 items-center mb-2 lg:mb-4">
-                  <p className="text-xl md:text-2xl lg:text-4xl font-semibold text-gray-900">
-                    Rp{" "}
-                    {selectedVariant ? selectedVariant.price : "629.000.000"}
+                  <p className="text-3xl lg:text-4xl font-semibold text-gray-900">
+                    Rp {selectedVariant ? selectedVariant.price : "629.000.000"}
                   </p>
                 </div>
                 {Object.entries(selectedVariant?.content || car.content || {})
@@ -185,9 +184,9 @@ export default function ModelSharedSections({
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
                   <div className="absolute bottom-4 left-4 right-4">
-                    <p className="text-sm text-gray-500 mb-1 font-semibold">
+                    {/* <p className="text-sm text-gray-500 mb-1 font-semibold">
                       &lt;&lt; Previous
-                    </p>
+                    </p> */}
                     <p className="text-xl font-bold text-white">
                       {previousCar.name}
                     </p>
@@ -209,9 +208,9 @@ export default function ModelSharedSections({
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
                   <div className="absolute bottom-4 right-4">
-                    <p className="text-sm text-gray-500 mb-1 font-semibold text-right">
+                    {/* <p className="text-sm text-gray-500 mb-1 font-semibold text-right">
                       Next &gt;&gt;
-                    </p>
+                    </p> */}
                     <p className="text-xl font-bold text-white">
                       {nextCar.name}
                     </p>
