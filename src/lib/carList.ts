@@ -263,26 +263,13 @@ export const carList = [
     variants: [
       {
         name: "Premium",
-        tag: "Extended Range",
-        price: "655.000.000",
+        price: "965.000.000",
         content: {
           "Torsi Maksimum": "360 N.m",
           "Daya Maksimum": "230 kW",
           "Jarak Mengemudi NEDC": "600 km",
           "Kapasitas Baterai": "103.36 kWh",
           "0-100 km/h": "9.5 s",
-        },
-      },
-      {
-        name: "Performance",
-        tag: "AWD",
-        price: "766.000.000",
-        content: {
-          "Torsi Maksimum": "670 N.m",
-          "Daya Maksimum": "390 kW",
-          "Jarak Mengemudi NEDC": "580 km",
-          "Kapasitas Baterai": "82.56 kWh",
-          "0-100 km/h": "3.8s",
         },
       },
     ],
