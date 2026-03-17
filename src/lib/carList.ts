@@ -263,6 +263,7 @@ export const carList = [
     variants: [
       {
         name: "Premium",
+        tag: "7 Seater",
         price: "965.000.000",
         content: {
           "Torsi Maksimum": "360 N.m",
