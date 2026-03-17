@@ -103,7 +103,7 @@ Mohon informasi lebih lanjut. Terima kasih!`;
               {/* Tenor Dropdown */}
               <div>
                 <label className="block text-gray-700 font-semibold mb-3">
-                  Tenor (Bulan) <span className="text-red-500">*</span>
+                  Tenor (Tahun) <span className="text-red-500">*</span>
                 </label>
                 <select
                   value={tenor}

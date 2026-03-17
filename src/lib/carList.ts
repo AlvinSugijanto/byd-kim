@@ -270,10 +270,10 @@ export const carList = [
           "Daya Maksimum": "230 kW",
           "Jarak Mengemudi NEDC": "600 km",
           "Kapasitas Baterai": "103.36 kWh",
-          "0-100 km/h": "9.5 s",
+          "0-100 km/h": "9.5s",
         },
       },
     ],
-    specCard: "/spec-card/BYD SEAL 2025 - BROCHURE.pdf",
+    specCard: "/spec-card/DENZA - BROCHURE.pdf",
   },
 ];
