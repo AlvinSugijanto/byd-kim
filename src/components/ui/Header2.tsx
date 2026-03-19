@@ -12,15 +12,15 @@ import {
   FaArrowRight,
 } from "react-icons/fa";
 import { cn } from "@/lib/utils";
-import Image from "next/image";
 import Logo from "../Logo";
+import { Squash as Hamburger } from "hamburger-react";
 
 const navLinks = [
   { name: "Home", href: "/#home", hasDropdown: false },
   { name: "Model", href: "/model" },
   { name: "Test Drive", href: "/#request-demo", hasDropdown: false },
 
-  { name: "Contact Us", href: "/#contact-us" },
+  { name: "HUBUNGI KAMI", href: "/#contact-us" },
 ];
 
 export default function Header2() {
@@ -96,21 +96,10 @@ export default function Header2() {
     >
       <div
         className={cn(
-          "flex items-center justify-between px-6 transition-all duration-300 ",
-          isScrolled ? "py-3" : "py-4",
+          "flex items-center justify-between px-6 transition-all duration-300",
+          isScrolled ? "lg:py-3 py-1" : "lg:py-4 py-1.5",
         )}
       >
-        {/* Logo */}
-        {/* <Link href="/" className="flex items-center gap-4">
-          <Image
-            src="/logo.png"
-            alt="BYD Logo"
-            width={50}
-            height={50}
-            className="w-auto h-full"
-          />
-       
-        </Link> */}
         <Logo width={50} height={50} />
 
         {/* Desktop Nav */}
@@ -164,7 +153,12 @@ export default function Header2() {
           )}
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
         >
-          {mobileMenuOpen ? <FaTimes /> : <FaBars />}
+          <Hamburger
+            toggled={mobileMenuOpen}
+            toggle={setMobileMenuOpen}
+            size={26}
+            color="white"
+          />
         </button>
       </div>
 

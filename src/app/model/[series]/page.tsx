@@ -9,7 +9,7 @@ import M6DetailView from "@/sections/model/detail/m6-detail-view";
 import Sealion7DetailView from "@/sections/model/detail/sealion7-detail-view";
 import { ComponentType } from "react";
 import { ModelDetailProps } from "@/types/model";
-import ModelDetailView from "@/sections/model/detail/model-detail-view";
+import ModelDetailView from "@/sections/model/model-detail-view";
 import DenzaDetailView from "@/sections/model/detail/denza-detail-view";
 
 interface PageProps {

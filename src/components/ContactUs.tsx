@@ -16,7 +16,7 @@ export default function ContactUs() {
       link: `${contactInfo.waLink}?text=${encodeURIComponent("Halo, saya ingin menghubungi BYD.")}`,
       icon: <FaPhone />,
       title: "Phone",
-      content: [contactInfo.phone, "Senin - Minggu: 08:30 - 19:00"],
+      content: [contactInfo.phone, "Senin - Minggu: 08:30 - 22:00"],
       overlay: "Kirim Pesan Whatsapp",
     },
     {
@@ -61,7 +61,7 @@ export default function ContactUs() {
             <div className="space-y-6 ">
               {items.map((item, index) => (
                 <a
-                  key={item.link}
+                  key={item.title}
                   href={item.link}
                   target="_blank"
                   rel="noopener noreferrer"
@@ -71,15 +71,14 @@ export default function ContactUs() {
                     {item.icon}
                   </div>
                   <div className="relative z-10">
-                    <h4 className="font-semibold text-gray-900 mb-1 group-hover:text-gray-800 transition-colors">
+                    <h4 className="font-semibold text-gray-900 mb-1 group-hover:text-gray-800 transition-colors break-all">
                       {item.title}
                     </h4>
                     {item.content.map((content, index) => (
-                      <p className="text-gray-600" key={index}>
+                      <p className="text-gray-600 break-all" key={index}>
                         {content}
                       </p>
                     ))}
-                    {/* <p className="text-gray-600">Mon - Sun: 8:30 AM - 7:00 PM</p> */}
                   </div>
                   <div className="absolute inset-0 bg-gray-900 -translate-x-full group-hover:translate-x-0 transition-transform duration-[700ms] ease-in-out flex items-center justify-center z-20">
                     <p className="text-white font-semibold text-lg flex items-center gap-2">
