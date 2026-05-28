@@ -6,7 +6,7 @@ import Image from "next/image";
 import contactInfo from "@/lib/contactInfo";
 import ModelSharedSections from "./model-shared-sections";
 
-export default function M6DetailView({
+export default function M6DMDetailView({
   car,
   previousCar,
   nextCar,
@@ -31,10 +31,10 @@ export default function M6DetailView({
           {/* Background Image */}
           <div className="absolute inset-0">
             <Image
-              src={"/detail/m6/1.webp"}
+              src={"/detail/m6-dm/1.webp"}
               alt={car.name}
               fill
-              className="object-cover [object-position:50%_30%]"
+              className="object-cover sm:[object-position:50%_30%] [object-position:20%_30%]"
               priority
             />
 
@@ -50,10 +50,10 @@ export default function M6DetailView({
               initial={{ opacity: 0, x: -30 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
-              className="absolute top-36  lg:right-36"
+              className="absolute top-36 lg:left-36"
             >
-              <p className="text-5xl sm:text-6xl ml-1.5 text-white font-semibold uppercase mb-2">
-                BYD M6
+              <p className="text-5xl sm:text-6xl ml-1.5 text-black font-semibold uppercase mb-2">
+                BYD M6 DM
               </p>
             </motion.div>
 
@@ -100,7 +100,7 @@ export default function M6DetailView({
             {/* Background Image */}
             <div className="absolute inset-0">
               <Image
-                src="/detail/m6/2.webp"
+                src="/detail/m6-dm/2.webp"
                 alt="Background"
                 fill
                 className="object-cover object-[20%_0%]"
@@ -109,7 +109,7 @@ export default function M6DetailView({
             </div>
 
             <div className="relative z-10 max-w-2xl mx-auto">
-              <motion.div
+              {/* <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
@@ -118,10 +118,10 @@ export default function M6DetailView({
                 <h2 className="text-2xl sm:text-3xl md:text-4xl font-medium text-gray-800 text-center">
                   {car.title}
                 </h2>
-              </motion.div>
+              </motion.div> */}
             </div>
             <div className="relative z-10 max-w-5xl mx-auto">
-              <motion.div
+              {/* <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
@@ -130,7 +130,7 @@ export default function M6DetailView({
                 <p className="text-md md:text-xl text-gray-800 leading-relaxed text-justify">
                   {car.description}
                 </p>
-              </motion.div>
+              </motion.div> */}
             </div>
           </section>
         )}

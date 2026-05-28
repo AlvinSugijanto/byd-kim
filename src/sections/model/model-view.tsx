@@ -15,7 +15,7 @@ const ModelView = () => {
     "ATTO Series": carList.filter((car) => car.series.includes("atto")),
     "DOLPHIN Series": carList.filter((car) => car.series === "dolphin"),
     "SEAL Series": carList.filter((car) => car.series.includes("seal")),
-    "M6 Series": carList.filter((car) => car.series === "m6"),
+    "M6 Series": carList.filter((car) => car.series.includes("m6")),
     DENZA: carList.filter((car) => car.series === "denza"),
   };
 

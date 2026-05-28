@@ -210,6 +210,56 @@ export const carList = [
     ],
     specCard: "/spec-card/BYD M6 - BROCHURE.pdf",
   },
+  {
+    name: "BYD M6 DM",
+    series: "m6-dm",
+    path: "/byd-png/byd-m6-dm.png",
+    type: "electric",
+    tag: "mpv",
+    title: "Elevate Everyday",
+    description:
+      "Petualangan listrik keluarga Anda dimulai di sini. BYD M6 adalah mobil 7-penumpang lapang yang dirancang untuk kenyamanan dan keselamatan maksimal, memadukan efisiensi dengan keanggunan tertinggi dengan sempurna untuk perjalanan keluarga yang tanpa beban.",
+
+    variants: [
+      {
+        name: "Advanced",
+        tag: "5 Seater",
+        price: " COMING SOON",
+        content: {
+          "Torsi Maksimum": "-",
+          "Daya Maksimum": "-",
+          "Jarak Mengemudi NEDC": "-",
+          "Kapasitas Baterai": "-",
+          "0-100 km/h": "-",
+        },
+      },
+      {
+        name: "Superior",
+        tag: "5 Seater",
+        price: " COMING SOON",
+        content: {
+          "Torsi Maksimum": "-",
+          "Daya Maksimum": "-",
+          "Jarak Mengemudi NEDC": "-",
+          "Kapasitas Baterai": "-",
+          "0-100 km/h": "-",
+        },
+      },
+      {
+        name: "Superior Captain Seat",
+        tag: "7 Seater",
+        price: " COMING SOON",
+        content: {
+          "Torsi Maksimum": "-",
+          "Daya Maksimum": "-",
+          "Jarak Mengemudi NEDC": "-",
+          "Kapasitas Baterai": "-",
+          "0-100 km/h": "-",
+        },
+      },
+    ],
+    specCard: "/spec-card/BYD M6 DM - BROCHURE.pdf",
+  },
 
   {
     name: "BYD SEALION 7",
