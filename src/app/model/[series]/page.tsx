@@ -11,7 +11,9 @@ import { ComponentType } from "react";
 import { ModelDetailProps } from "@/types/model";
 import ModelDetailView from "@/sections/model/model-detail-view";
 import DenzaDetailView from "@/sections/model/detail/denza-detail-view";
-import M6DMDetailView from "@/sections/model/detail/m6-dm-detail-view";
+import M6DMDetailView from "@/sections/model/detail/m6-dm-cross-detail-view";
+import M6DMCrossDetailView from "@/sections/model/detail/m6-dm-cross-detail-view";
+import M6DMClassicDetailView from "@/sections/model/detail/m6-dm-classic-detail-view";
 
 interface PageProps {
   params: Promise<{
@@ -26,7 +28,8 @@ const viewMap: Record<string, ComponentType<ModelDetailProps>> = {
   "atto-1": Atto1DetailView,
   dolphin: DolphinDetailView,
   m6: M6DetailView,
-  "m6-dm": M6DMDetailView,
+  "m6-dm-cross": M6DMCrossDetailView,
+  "m6-dm-classic": M6DMClassicDetailView,
   "sealion-7": Sealion7DetailView,
   denza: DenzaDetailView,
 };

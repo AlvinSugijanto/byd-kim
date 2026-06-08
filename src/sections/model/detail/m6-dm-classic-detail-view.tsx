@@ -6,13 +6,11 @@ import Image from "next/image";
 import contactInfo from "@/lib/contactInfo";
 import ModelSharedSections from "./model-shared-sections";
 
-export default function M6DMDetailView({
+export default function M6DMClassicDetailView({
   car,
   previousCar,
   nextCar,
 }: ModelDetailProps) {
-  const carNameClean = car.name.replace("BYD ", "");
-
   const handleDownloadSpecCard = () => {
     if (!car.specCard) return;
     const link = document.createElement("a");
@@ -53,7 +51,7 @@ export default function M6DMDetailView({
               className="absolute top-36 lg:left-36"
             >
               <p className="text-5xl sm:text-6xl ml-1.5 text-black font-semibold uppercase mb-2">
-                BYD M6 DM
+                BYD M6 DM Classic
               </p>
             </motion.div>
 

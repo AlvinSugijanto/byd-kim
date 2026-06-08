@@ -96,9 +96,21 @@ export const carList = [
 
     variants: [
       {
-        name: "Dynamic",
+        name: "Standard",
         tag: "Standard Range",
         price: "205.000.000",
+        content: {
+          "Torsi Maksimum": "135 N.m",
+          "Daya Maksimum": "55 kW",
+          "Jarak Mengemudi NEDC": "300 km",
+          "Kapasitas Baterai": "30.08 kWh",
+          "0-50 km/h": "4.9s",
+        },
+      },
+      {
+        name: "Dynamic",
+        tag: "Standard Range",
+        price: "211.000.000",
         content: {
           "Torsi Maksimum": "135 N.m",
           "Daya Maksimum": "55 kW",
@@ -211,8 +223,46 @@ export const carList = [
     specCard: "/spec-card/BYD M6 - BROCHURE.pdf",
   },
   {
-    name: "BYD M6 DM",
-    series: "m6-dm",
+    name: "BYD M6 DM-i Classic",
+    series: "m6-dm-classic",
+    path: "/byd-png/byd-m6-dm.png",
+    type: "electric",
+    tag: "mpv",
+    title: "Elevate Everyday",
+    description:
+      "Petualangan listrik keluarga Anda dimulai di sini. BYD M6 adalah mobil 7-penumpang lapang yang dirancang untuk kenyamanan dan keselamatan maksimal, memadukan efisiensi dengan keanggunan tertinggi dengan sempurna untuk perjalanan keluarga yang tanpa beban.",
+
+    variants: [
+      {
+        name: "Standard",
+        tag: "5 Seater",
+        price: " COMING SOON",
+        content: {
+          "Torsi Maksimum": "-",
+          "Daya Maksimum": "-",
+          "Jarak Mengemudi NEDC": "-",
+          "Kapasitas Baterai": "-",
+          "0-100 km/h": "-",
+        },
+      },
+      {
+        name: "Dynamic",
+        tag: "5 Seater",
+        price: " COMING SOON",
+        content: {
+          "Torsi Maksimum": "-",
+          "Daya Maksimum": "-",
+          "Jarak Mengemudi NEDC": "-",
+          "Kapasitas Baterai": "-",
+          "0-100 km/h": "-",
+        },
+      },
+    ],
+    specCard: "/spec-card/BYD M6 DM - BROCHURE.pdf",
+  },
+  {
+    name: "BYD M6 DM-i Cross",
+    series: "m6-dm-cross",
     path: "/byd-png/byd-m6-dm.png",
     type: "electric",
     tag: "mpv",
