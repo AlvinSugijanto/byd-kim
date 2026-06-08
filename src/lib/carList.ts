@@ -122,7 +122,7 @@ export const carList = [
       {
         name: "Premium",
         tag: "Long Range",
-        price: "241.000.000",
+        price: "251.000.000",
         content: {
           "Torsi Maksimum": "135 N.m",
           "Daya Maksimum": "55 kW",
