@@ -63,7 +63,7 @@ export const carList = [
       {
         name: "Advanced Plus",
         tag: "Standard Range",
-        price: "415.000.000",
+        price: "421.000.000",
         content: {
           "Jarak Mengemudi NEDC": "410 km",
           "Kapasitas Baterai": "49.92 kWh",
