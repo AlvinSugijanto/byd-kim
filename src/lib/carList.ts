@@ -236,7 +236,7 @@ export const carList = [
       {
         name: "Standard",
         tag: "5 Seater",
-        price: " COMING SOON",
+        price: "307.900.000",
         content: {
           "Torsi Maksimum": "-",
           "Daya Maksimum": "-",
@@ -248,7 +248,7 @@ export const carList = [
       {
         name: "Dynamic",
         tag: "5 Seater",
-        price: " COMING SOON",
+        price: "327.900.000",
         content: {
           "Torsi Maksimum": "-",
           "Daya Maksimum": "-",
@@ -274,19 +274,7 @@ export const carList = [
       {
         name: "Advanced",
         tag: "5 Seater",
-        price: " COMING SOON",
-        content: {
-          "Torsi Maksimum": "-",
-          "Daya Maksimum": "-",
-          "Jarak Mengemudi NEDC": "-",
-          "Kapasitas Baterai": "-",
-          "0-100 km/h": "-",
-        },
-      },
-      {
-        name: "Superior",
-        tag: "5 Seater",
-        price: " COMING SOON",
+        price: "369.900.000",
         content: {
           "Torsi Maksimum": "-",
           "Daya Maksimum": "-",
@@ -297,8 +285,20 @@ export const carList = [
       },
       {
         name: "Superior Captain Seat",
+        tag: "5 Seater",
+        price: "399.900.000",
+        content: {
+          "Torsi Maksimum": "-",
+          "Daya Maksimum": "-",
+          "Jarak Mengemudi NEDC": "-",
+          "Kapasitas Baterai": "-",
+          "0-100 km/h": "-",
+        },
+      },
+      {
+        name: "Superior 7 Seater",
         tag: "7 Seater",
-        price: " COMING SOON",
+        price: "389.900.000",
         content: {
           "Torsi Maksimum": "-",
           "Daya Maksimum": "-",
